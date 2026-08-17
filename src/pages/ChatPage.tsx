@@ -1,0 +1,209 @@
+import { FormEvent, useEffect, useRef, useState } from "react";
+import { sendFeedback, streamChat } from "../api";
+import type { ChatMessage, Source } from "../types";
+
+function SourceChips({ sources }: { sources: Source[] }) {
+  if (!sources.length) return null;
+  // De-duplicate identical book+page pairs
+  const seen = new Set<string>();
+  const unique = sources.filter((s) => {
+    const key = `${s.document_title}|${s.page_number}`;
+    if (seen.has(key)) return false;
+    seen.add(key);
+    return true;
+  });
+  return (
+    <div className="sources">
+      {unique.map((s) => (
+        <span key={s.index} className="chip" title={s.subject ?? undefined}>
+          {s.document_title}
+          {s.page_number ? ` · p.${s.page_number}` : ""}
+        </span>
+      ))}
+    </div>
+  );
+}
+
+function Feedback({
+  messageId,
+  rating,
+  onRated,
+}: {
+  messageId: number;
+  rating: 1 | -1 | null | undefined;
+  onRated: (r: 1 | -1) => void;
+}) {
+  const rate = async (r: 1 | -1) => {
+    try {
+      await sendFeedback(messageId, r);
+      onRated(r);
+    } catch (e) {
+      console.error(e);
+    }
+  };
+  return (
+    <div className="feedback">
+      <button
+        className={rating === 1 ? "fb active" : "fb"}
+        onClick={() => rate(1)}
+        title="Helpful"
+      >
+        👍
+      </button>
+      <button
+        className={rating === -1 ? "fb active" : "fb"}
+        onClick={() => rate(-1)}
+        title="Not helpful"
+      >
+        👎
+      </button>
+    </div>
+  );
+}
+
+export default function ChatPage() {
+  const [messages, setMessages] = useState<ChatMessage[]>([]);
+  const [conversationId, setConversationId] = useState<number | null>(null);
+  const [grade, setGrade] = useState("");
+  const [subject, setSubject] = useState("");
+  const [input, setInput] = useState("");
+  const [busy, setBusy] = useState(false);
+  const [error, setError] = useState<string | null>(null);
+  const bottomRef = useRef<HTMLDivElement>(null);
+
+  useEffect(() => {
+    bottomRef.current?.scrollIntoView({ behavior: "smooth" });
+  }, [messages]);
+
+  const newChat = () => {
+    setMessages([]);
+    setConversationId(null);
+    setError(null);
+  };
+
+  const submit = async (e: FormEvent) => {
+    e.preventDefault();
+    const question = input.trim();
+    if (!question || busy) return;
+    setInput("");
+    setError(null);
+    setBusy(true);
+    setMessages((m) => [
+      ...m,
+      { role: "user", content: question },
+      { role: "assistant", content: "", streaming: true },
+    ]);
+
+    const updateLast = (patch: Partial<ChatMessage>) =>
+      setMessages((m) => {
+        const copy = [...m];
+        copy[copy.length - 1] = { ...copy[copy.length - 1], ...patch };
+        return copy;
+      });
+
+    try {
+      let answer = "";
+      for await (const event of streamChat({
+        question,
+        conversation_id: conversationId,
+        grade: grade.trim() || null,
+        subject: subject.trim() || null,
+      })) {
+        if (event.type === "start") {
+          setConversationId(event.conversation_id);
+        } else if (event.type === "token") {
+          answer += event.text;
+          updateLast({ content: answer });
+        } else if (event.type === "done") {
+          updateLast({
+            streaming: false,
+            messageId: event.message_id,
+            sources: event.sources,
+          });
+        } else if (event.type === "error") {
+          throw new Error(event.detail);
+        }
+      }
+    } catch (err) {
+      updateLast({ streaming: false });
+      setError(err instanceof Error ? err.message : String(err));
+    } finally {
+      setBusy(false);
+    }
+  };
+
+  return (
+    <div className="chat-page">
+      <div className="chat-toolbar">
+        <input
+          className="small-input"
+          placeholder="Grade (e.g. 9)"
+          value={grade}
+          onChange={(e) => setGrade(e.target.value)}
+          disabled={conversationId !== null}
+          title={conversationId !== null ? "Filters are fixed per conversation" : ""}
+        />
+        <input
+          className="small-input"
+          placeholder="Subject (optional)"
+          value={subject}
+          onChange={(e) => setSubject(e.target.value)}
+          disabled={conversationId !== null}
+        />
+        <button className="secondary" onClick={newChat}>
+          + New chat
+        </button>
+      </div>
+
+      <div className="messages">
+        {messages.length === 0 && (
+          <div className="empty">
+            Ask anything from your books — in English or हिन्दी.
+            <br />
+            <span className="dim">Follow-up questions are understood in context.</span>
+          </div>
+        )}
+        {messages.map((m, i) => (
+          <div key={i} className={`bubble-row ${m.role}`}>
+            <div className={`bubble ${m.role}`}>
+              <div className="bubble-text">
+                {m.content || (m.streaming ? "…" : "")}
+                {m.streaming && m.content && <span className="cursor">▍</span>}
+              </div>
+              {m.role === "assistant" && !m.streaming && m.sources && (
+                <SourceChips sources={m.sources} />
+              )}
+              {m.role === "assistant" && !m.streaming && m.messageId != null && (
+                <Feedback
+                  messageId={m.messageId}
+                  rating={m.rating}
+                  onRated={(r) =>
+                    setMessages((all) =>
+                      all.map((msg, j) => (j === i ? { ...msg, rating: r } : msg)),
+                    )
+                  }
+                />
+              )}
+            </div>
+          </div>
+        ))}
+        <div ref={bottomRef} />
+      </div>
+
+      {error && <div className="error">⚠️ {error}</div>}
+
+      <form className="composer" onSubmit={submit}>
+        <input
+          autoFocus
+          placeholder={busy ? "Thinking…" : "Ask a question…"}
+          value={input}
+          onChange={(e) => setInput(e.target.value)}
+          disabled={busy}
+        />
+        <button type="submit" disabled={busy || !input.trim()}>
+          Send
+        </button>
+      </form>
+    </div>
+  );
+}
