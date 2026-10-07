@@ -193,6 +193,19 @@ button.secondary {
   border-bottom-left-radius: 4px;
 }
 
+.bubble.assistant.failed {
+  background: #fef2f2;
+  border-color: #fecaca;
+  color: var(--bad);
+}
+
+.citation {
+  cursor: default;
+  margin-left: 1px;
+  color: var(--accent);
+  font-weight: 600;
+}
+
 .cursor {
   animation: blink 1s step-end infinite;
 }

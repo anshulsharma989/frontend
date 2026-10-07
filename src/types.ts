@@ -51,4 +51,5 @@ export interface ChatMessage {
   sources?: Source[];
   rating?: 1 | -1 | null;
   streaming?: boolean;
+  failed?: boolean;
 }

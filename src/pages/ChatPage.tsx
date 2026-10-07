@@ -1,6 +1,44 @@
-import { FormEvent, useEffect, useRef, useState } from "react";
+import { FormEvent, ReactNode, useEffect, useRef, useState } from "react";
 import { sendFeedback, streamChat } from "../api";
 import type { ChatMessage, Source } from "../types";
+
+const FALLBACK_ERROR_MESSAGE = "Something went wrong. Please try again after some time.";
+
+/** Renders **bold**, *italic*, and [n] citation markers backed by `sources`. */
+function renderFormatted(text: string, sources: Source[]): ReactNode[] {
+  const pattern = /\*\*(.+?)\*\*|\*(.+?)\*|\[(\d+)\]/g;
+  const nodes: ReactNode[] = [];
+  let lastIndex = 0;
+  let match: RegExpExecArray | null;
+  let key = 0;
+
+  while ((match = pattern.exec(text)) !== null) {
+    if (match.index > lastIndex) {
+      nodes.push(text.slice(lastIndex, match.index));
+    }
+    if (match[1] !== undefined) {
+      nodes.push(<strong key={key++}>{match[1]}</strong>);
+    } else if (match[2] !== undefined) {
+      nodes.push(<em key={key++}>{match[2]}</em>);
+    } else if (match[3] !== undefined) {
+      const index = Number(match[3]);
+      const source = sources.find((s) => s.index === index);
+      const label = source
+        ? `${source.document_title}${source.page_number ? ` · p.${source.page_number}` : ""}`
+        : `Source ${index}`;
+      nodes.push(
+        <sup key={key++} className="citation" title={label}>
+          {index}
+        </sup>,
+      );
+    }
+    lastIndex = pattern.lastIndex;
+  }
+  if (lastIndex < text.length) {
+    nodes.push(text.slice(lastIndex));
+  }
+  return nodes;
+}
 
 function SourceChips({ sources }: { sources: Source[] }) {
   if (!sources.length) return null;
@@ -125,8 +163,19 @@ export default function ChatPage() {
         }
       }
     } catch (err) {
-      updateLast({ streaming: false });
-      setError(err instanceof Error ? err.message : String(err));
+      const message = err instanceof Error ? err.message : String(err);
+      setMessages((m) => {
+        const copy = [...m];
+        const last = copy[copy.length - 1];
+        copy[copy.length - 1] = {
+          ...last,
+          streaming: false,
+          failed: true,
+          content: last.content || FALLBACK_ERROR_MESSAGE,
+        };
+        return copy;
+      });
+      setError(message);
     } finally {
       setBusy(false);
     }
@@ -165,9 +214,13 @@ export default function ChatPage() {
         )}
         {messages.map((m, i) => (
           <div key={i} className={`bubble-row ${m.role}`}>
-            <div className={`bubble ${m.role}`}>
+            <div className={`bubble ${m.role}${m.failed ? " failed" : ""}`}>
               <div className="bubble-text">
-                {m.content || (m.streaming ? "…" : "")}
+                {m.content
+                  ? renderFormatted(m.content, m.sources ?? [])
+                  : m.streaming
+                    ? "…"
+                    : ""}
                 {m.streaming && m.content && <span className="cursor">▍</span>}
               </div>
               {m.role === "assistant" && !m.streaming && m.sources && (
