@@ -1,6 +1,7 @@
-import { useState } from "react";
-import { generateQuiz } from "../api";
-import type { QuizQuestion } from "../types";
+import { useEffect, useState } from "react";
+import { generateQuiz, getGrades, getSubjects } from "../api";
+import { useAuth } from "../auth";
+import type { Grade, QuizQuestion, Subject } from "../types";
 
 const LETTERS = ["A", "B", "C", "D"];
 
@@ -42,12 +43,25 @@ function QuestionCard({ q, index }: { q: QuizQuestion; index: number }) {
 }
 
 export default function QuizPage() {
-  const [grade, setGrade] = useState("");
-  const [subject, setSubject] = useState("");
+  const { user } = useAuth();
+  const isAdmin = user?.role === "admin";
+  const [grades, setGrades] = useState<Grade[]>([]);
+  const [gradeId, setGradeId] = useState<number | null>(null);
+  const [subjects, setSubjects] = useState<Subject[]>([]);
+  const [subjectId, setSubjectId] = useState<number | null>(null);
   const [count, setCount] = useState(5);
   const [questions, setQuestions] = useState<QuizQuestion[] | null>(null);
   const [busy, setBusy] = useState(false);
   const [error, setError] = useState<string | null>(null);
+
+  useEffect(() => {
+    if (isAdmin) getGrades().then(setGrades).catch(() => {});
+  }, [isAdmin]);
+
+  useEffect(() => {
+    const scopeGradeId = isAdmin ? gradeId ?? undefined : undefined;
+    getSubjects(scopeGradeId).then(setSubjects).catch(() => {});
+  }, [isAdmin, gradeId]);
 
   const generate = async () => {
     setBusy(true);
@@ -56,8 +70,8 @@ export default function QuizPage() {
     try {
       setQuestions(
         await generateQuiz({
-          grade: grade.trim() || undefined,
-          subject: subject.trim() || undefined,
+          grade_id: isAdmin && gradeId ? gradeId : undefined,
+          subject_id: subjectId ?? undefined,
           num_questions: count,
         }),
       );
@@ -71,18 +85,34 @@ export default function QuizPage() {
   return (
     <div className="quiz-page">
       <div className="chat-toolbar">
-        <input
+        {isAdmin ? (
+          <select
+            className="small-input"
+            value={gradeId ?? ""}
+            onChange={(e) => setGradeId(e.target.value ? Number(e.target.value) : null)}
+          >
+            <option value="">All grades</option>
+            {grades.map((g) => (
+              <option key={g.id} value={g.id}>
+                {g.name}
+              </option>
+            ))}
+          </select>
+        ) : (
+          <span className="dim">{user?.grade_name}</span>
+        )}
+        <select
           className="small-input"
-          placeholder="Grade (e.g. 9)"
-          value={grade}
-          onChange={(e) => setGrade(e.target.value)}
-        />
-        <input
-          className="small-input"
-          placeholder="Subject (optional)"
-          value={subject}
-          onChange={(e) => setSubject(e.target.value)}
-        />
+          value={subjectId ?? ""}
+          onChange={(e) => setSubjectId(e.target.value ? Number(e.target.value) : null)}
+        >
+          <option value="">All subjects</option>
+          {subjects.map((s) => (
+            <option key={s.id} value={s.id}>
+              {s.name}
+            </option>
+          ))}
+        </select>
         <select value={count} onChange={(e) => setCount(Number(e.target.value))}>
           {[3, 5, 8, 10].map((n) => (
             <option key={n} value={n}>

@@ -1,6 +1,7 @@
 import { FormEvent, ReactNode, useEffect, useRef, useState } from "react";
-import { sendFeedback, streamChat } from "../api";
-import type { ChatMessage, Source } from "../types";
+import { getGrades, getSubjects, sendFeedback, streamChat } from "../api";
+import { useAuth } from "../auth";
+import type { ChatMessage, Grade, Source, Subject } from "../types";
 
 const FALLBACK_ERROR_MESSAGE = "Something went wrong. Please try again after some time.";
 
@@ -100,10 +101,14 @@ function Feedback({
 }
 
 export default function ChatPage() {
+  const { user } = useAuth();
+  const isAdmin = user?.role === "admin";
   const [messages, setMessages] = useState<ChatMessage[]>([]);
   const [conversationId, setConversationId] = useState<number | null>(null);
-  const [grade, setGrade] = useState("");
-  const [subject, setSubject] = useState("");
+  const [grades, setGrades] = useState<Grade[]>([]);
+  const [gradeId, setGradeId] = useState<number | null>(null);
+  const [subjects, setSubjects] = useState<Subject[]>([]);
+  const [subjectId, setSubjectId] = useState<number | null>(null);
   const [input, setInput] = useState("");
   const [busy, setBusy] = useState(false);
   const [error, setError] = useState<string | null>(null);
@@ -112,6 +117,16 @@ export default function ChatPage() {
   useEffect(() => {
     bottomRef.current?.scrollIntoView({ behavior: "smooth" });
   }, [messages]);
+
+  // Admins pick a grade explicitly; students are scoped to their own grade server-side.
+  useEffect(() => {
+    if (isAdmin) getGrades().then(setGrades).catch(() => {});
+  }, [isAdmin]);
+
+  useEffect(() => {
+    const scopeGradeId = isAdmin ? gradeId ?? undefined : undefined;
+    getSubjects(scopeGradeId).then(setSubjects).catch(() => {});
+  }, [isAdmin, gradeId]);
 
   const newChat = () => {
     setMessages([]);
@@ -144,8 +159,8 @@ export default function ChatPage() {
       for await (const event of streamChat({
         question,
         conversation_id: conversationId,
-        grade: grade.trim() || null,
-        subject: subject.trim() || null,
+        grade_id: isAdmin ? gradeId : null,
+        subject_id: subjectId,
       })) {
         if (event.type === "start") {
           setConversationId(event.conversation_id);
@@ -184,21 +199,37 @@ export default function ChatPage() {
   return (
     <div className="chat-page">
       <div className="chat-toolbar">
-        <input
+        {isAdmin ? (
+          <select
+            className="small-input"
+            value={gradeId ?? ""}
+            onChange={(e) => setGradeId(e.target.value ? Number(e.target.value) : null)}
+            disabled={conversationId !== null}
+            title={conversationId !== null ? "Filters are fixed per conversation" : ""}
+          >
+            <option value="">All grades</option>
+            {grades.map((g) => (
+              <option key={g.id} value={g.id}>
+                {g.name}
+              </option>
+            ))}
+          </select>
+        ) : (
+          <span className="dim">{user?.grade_name}</span>
+        )}
+        <select
           className="small-input"
-          placeholder="Grade (e.g. 9)"
-          value={grade}
-          onChange={(e) => setGrade(e.target.value)}
+          value={subjectId ?? ""}
+          onChange={(e) => setSubjectId(e.target.value ? Number(e.target.value) : null)}
           disabled={conversationId !== null}
-          title={conversationId !== null ? "Filters are fixed per conversation" : ""}
-        />
-        <input
-          className="small-input"
-          placeholder="Subject (optional)"
-          value={subject}
-          onChange={(e) => setSubject(e.target.value)}
-          disabled={conversationId !== null}
-        />
+        >
+          <option value="">All subjects</option>
+          {subjects.map((s) => (
+            <option key={s.id} value={s.id}>
+              {s.name}
+            </option>
+          ))}
+        </select>
         <button className="secondary" onClick={newChat}>
           + New chat
         </button>
