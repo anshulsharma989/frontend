@@ -1,0 +1,528 @@
+<!DOCTYPE html>
+
+<html class="light" lang="en"><head><meta charset="utf-8"/><meta content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no, viewport-fit=cover" name="viewport"/><meta content="mobile_stack" name="shell-type"/><link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@20..48,100..700,0..1,-50..200" rel="stylesheet"/><link href="https://fonts.googleapis.com" rel="preconnect"/><link crossorigin="" href="https://fonts.gstatic.com" rel="preconnect"/><link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&amp;family=JetBrains+Mono:wght@400;500;600;700&amp;family=Plus+Jakarta+Sans:wght@500;600;700;800&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/><style>@layer base{html,body{width:100vw;margin:0;padding:0;background-color:#f8fafc;}body{overscroll-behavior:none;color:#0f172a;}.pb-safe{padding-bottom:env(safe-area-inset-bottom,0px);}.pt-safe{padding-top:env(safe-area-inset-top,0px);}main>:first-child{margin-top:0!important;}main>:last-child{margin-bottom:0!important;}}::-webkit-scrollbar{display:none;}@keyframes pulse-subtle{0%,100%{opacity:1;transform:scale(1);}50%{opacity:0.4;transform:scale(0.85);}}.proctor-pulse{animation:pulse-subtle 2s cubic-bezier(0.4,0,0.6,1) infinite;}</style><script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script><script id="tailwind-config">tailwind.config = { darkMode: "class", theme: { extend: { "colors": { "tertiary-container": "#007650", "surface-dim": "#f1f5f9", "primary-fixed-dim": "#d2bbff", "outline": "#64748b", "inverse-on-surface": "#eef0ff", "on-secondary-fixed-variant": "#004c6e", "on-background": "#0f172a", "on-tertiary-fixed": "#002113", "on-secondary-fixed": "#001e2f", "on-surface": "#0f172a", "surface-bright": "#ffffff", "tertiary-fixed": "#6ffbbe", "inverse-primary": "#d2bbff", "on-primary-fixed-variant": "#5a00c6", "surface-tint": "#7c3aed", "outline-variant": "#cbd5e1", "on-surface-variant": "#334155", "on-primary-fixed": "#25005a", "surface-container-highest": "#e2e8f0", "inverse-surface": "#1e293b", "surface-container": "#ffffff", "tertiary-fixed-dim": "#4edea3", "secondary": "#0284c7", "on-secondary-container": "#0369a1", "on-primary-container": "#ffffff", "on-primary": "#ffffff", "on-error": "#ffffff", "surface-variant": "#f1f5f9", "surface-container-high": "#f8fafc", "on-tertiary-fixed-variant": "#005236", "secondary-container": "#e0f2fe", "tertiary": "#059669", "on-tertiary": "#ffffff", "on-tertiary-container": "#065f46", "background": "#f8fafc", "secondary-fixed": "#bae6fd", "on-error-container": "#991b1b", "surface-container-low": "#ffffff", "primary-container": "#7c3aed", "on-secondary": "#ffffff", "primary-fixed": "#ede9fe", "surface-container-lowest": "#f8fafc", "error-container": "#fee2e2", "error": "#dc2626", "primary": "#6366f1", "secondary-fixed-dim": "#7dd3fc", "surface": "#f8fafc" }, "borderRadius": { "DEFAULT": "0.25rem", "lg": "0.5rem", "xl": "0.75rem", "full": "9999px" }, "spacing": { "gutter": "1.5rem", "space-md": "1rem", "space-xl": "2.5rem", "margin": "2rem", "gutter-mobile": "1rem", "space-xs": "0.25rem", "space-sm": "0.5rem", "margin-mobile": "1rem", "space-lg": "1.5rem" }, "fontFamily": { "headline-display": ["Plus Jakarta Sans"], "body-sm": ["Inter"], "headline-display-mobile": ["Plus Jakarta Sans"], "code-sm": ["JetBrains Mono"], "headline-lg": ["Plus Jakarta Sans"], "body-md": ["Inter"], "headline-lg-mobile": ["Plus Jakarta Sans"], "body-lg": ["Inter"], "headline-sm": ["Plus Jakarta Sans"], "label-md": ["Inter"], "label-sm": ["Inter"], "headline-md": ["Plus Jakarta Sans"] }, "fontSize": { "headline-display": ["3.5rem", { "lineHeight": "4.25rem", "letterSpacing": "-0.03em", "fontWeight": "700" }], "body-sm": ["0.875rem", { "lineHeight": "1.25rem", "letterSpacing": "0em", "fontWeight": "400" }], "headline-display-mobile": ["2.25rem", { "lineHeight": "2.75rem", "letterSpacing": "-0.02em", "fontWeight": "700" }], "code-sm": ["0.8125rem", { "lineHeight": "1.25rem", "letterSpacing": "0em", "fontWeight": "500" }], "headline-lg": ["2.5rem", { "lineHeight": "3rem", "letterSpacing": "-0.025em", "fontWeight": "600" }], "body-md": ["1rem", { "lineHeight": "1.5rem", "letterSpacing": "0em", "fontWeight": "400" }], "headline-lg-mobile": ["1.75rem", { "lineHeight": "2.25rem", "letterSpacing": "-0.015em", "fontWeight": "600" }], "body-lg": ["1.125rem", { "lineHeight": "1.75rem", "letterSpacing": "-0.01em", "fontWeight": "400" }], "headline-sm": ["1.25rem", { "lineHeight": "1.75rem", "letterSpacing": "-0.01em", "fontWeight": "600" }], "label-md": ["0.875rem", { "lineHeight": "1.25rem", "letterSpacing": "0.01em", "fontWeight": "500" }], "label-sm": ["0.75rem", { "lineHeight": "1rem", "letterSpacing": "0.04em", "fontWeight": "600" }], "headline-md": ["1.75rem", { "lineHeight": "2.25rem", "letterSpacing": "-0.02em", "fontWeight": "600" }] } } } };</script><style>
+    body {
+      min-height: max(884px, 100dvh);
+    }
+  </style>
+</head><body class="bg-slate-50 font-body-md text-slate-900 flex flex-col min-h-screen selection:bg-violet-100 selection:text-violet-900"><header class="fixed top-0 inset-x-0 z-50 bg-white/90 backdrop-blur-2xl pt-safe border-b border-slate-200/80 shadow-[0_2px_12px_rgba(15,23,42,0.05)]"><div class="h-20 px-gutter-mobile flex flex-col justify-center gap-space-xs"><div class="flex items-center justify-between"><div class="flex items-center gap-space-sm"><button aria-label="Pause or Exit Exam" class="h-10 px-space-sm rounded-xl bg-slate-100 hover:bg-slate-200 text-slate-700 border border-slate-200/70 flex items-center gap-space-xs transition-colors"><span class="material-symbols-outlined text-[18px] text-red-600">pause_circle</span><span class="text-label-sm font-label-sm font-semibold text-slate-700">Pause</span></button><div class="flex items-center gap-space-xs px-2.5 py-1.5 rounded-full bg-emerald-50 border border-emerald-200/80"><span class="w-2 h-2 rounded-full bg-emerald-500 proctor-pulse"></span><span class="text-label-sm font-label-sm text-emerald-800 font-semibold tracking-tight">AI Proctor Active</span></div></div><div class="flex items-center gap-space-sm"><div class="flex items-center gap-space-xs bg-slate-100 px-space-sm py-1.5 rounded-xl border border-slate-200/80"><span class="material-symbols-outlined text-[16px] text-sky-600">timer</span><span class="font-code-sm text-code-sm font-bold text-slate-900 tracking-wider">48:22</span></div><div class="w-8 h-8 rounded-full bg-violet-600 shadow-sm flex items-center justify-center"><span class="material-symbols-outlined text-white text-[18px]">person</span></div></div></div><div class="flex items-center justify-between gap-space-md"><div class="flex items-center gap-space-xs text-slate-500"><span class="text-label-sm font-label-sm font-medium text-slate-600">Active Exam Session</span><span class="text-label-sm font-label-sm text-slate-300">•</span><span class="text-label-sm font-label-sm font-code-sm text-slate-600 font-semibold">14/30 Solved</span></div><div class="flex-1 max-w-[120px] h-1.5 bg-slate-200 rounded-full overflow-hidden"><div class="h-full bg-gradient-to-r from-violet-600 via-indigo-600 to-sky-500 rounded-full w-[46%]"></div></div></div></div></header><main class="flex-1 flex flex-col relative w-full pt-20 pb-20 bg-slate-50 px-gutter-mobile"><div class="flex flex-col w-full pb-10 space-y-space-md">
+<!-- Interactive State Banners & Live Proctor Micro-HUD -->
+<div class="w-full bg-white rounded-xl p-space-sm flex items-center justify-between border border-slate-200/80 shadow-sm">
+<div class="flex items-center gap-space-sm min-w-0">
+<div class="relative flex items-center justify-center w-8 h-8 rounded-lg bg-emerald-50 border border-emerald-100 shrink-0">
+<span class="material-symbols-outlined text-[18px] text-emerald-600">videocam</span>
+<span class="absolute top-1 right-1 w-1.5 h-1.5 rounded-full bg-emerald-500 proctor-pulse"></span>
+</div>
+<div class="flex flex-col min-w-0">
+<div class="flex items-center gap-space-xs">
+<span class="font-headline-sm text-label-sm font-bold text-slate-900 truncate">PHYS-402 • Midterm</span>
+<span class="px-1.5 py-0.5 rounded-full bg-sky-50 text-sky-700 border border-sky-200 text-[10px] font-label-sm font-bold tracking-wide">PROCTORED</span>
+</div>
+<span class="font-body-sm text-label-sm text-slate-500 truncate">Biometric gaze &amp; environment verified</span>
+</div>
+</div>
+<!-- Quick Tool Accents -->
+<div class="flex items-center gap-space-xs shrink-0">
+<button class="h-8 px-2 rounded-lg bg-slate-100 border border-slate-200 text-slate-700 hover:text-sky-700 hover:bg-sky-50 hover:border-sky-200 flex items-center gap-1 transition-all" id="calc-toggle-btn">
+<span class="material-symbols-outlined text-[16px] text-sky-600">calculate</span>
+<span class="font-code-sm text-label-sm font-medium">Calc</span>
+</button>
+<button class="h-8 px-2 rounded-lg bg-slate-100 border border-slate-200 text-slate-700 hover:text-violet-700 hover:bg-violet-50 hover:border-violet-200 flex items-center gap-1 transition-all" id="formula-toggle-btn">
+<span class="material-symbols-outlined text-[16px] text-violet-600">menu_book</span>
+<span class="font-code-sm text-label-sm font-medium">Sheet</span>
+</button>
+</div>
+</div>
+<!-- Expandable Reference / Formula Sheet Drawer (Embedded) -->
+<div class="hidden w-full bg-white border border-slate-200 rounded-xl p-space-md space-y-space-sm shadow-md transition-all" id="formula-drawer">
+<div class="flex items-center justify-between">
+<div class="flex items-center gap-space-xs">
+<span class="material-symbols-outlined text-sky-600 text-[18px]">functions</span>
+<span class="font-headline-sm text-label-sm font-bold text-sky-900">Acoustics &amp; Wave Mechanics Reference</span>
+</div>
+<button class="text-slate-400 hover:text-slate-700 p-1" id="formula-close-btn">
+<span class="material-symbols-outlined text-[16px]">close</span>
+</button>
+</div>
+<div class="grid grid-cols-2 gap-space-xs text-slate-600">
+<div class="p-space-xs rounded bg-slate-50 border border-slate-200/70">
+<span class="font-label-sm text-[11px] text-slate-500 block">Doppler (Moving Observer)</span>
+<span class="font-code-sm text-code-sm text-violet-700 font-semibold">f' = f₀ · (v ± v_o) / v</span>
+</div>
+<div class="p-space-xs rounded bg-slate-50 border border-slate-200/70">
+<span class="font-label-sm text-[11px] text-slate-500 block">Doppler (Moving Source)</span>
+<span class="font-code-sm text-code-sm text-violet-700 font-semibold">f' = f₀ · v / (v ∓ v_s)</span>
+</div>
+<div class="p-space-xs rounded bg-slate-50 border border-slate-200/70">
+<span class="font-label-sm text-[11px] text-slate-500 block">Speed of Sound (Air at T)</span>
+<span class="font-code-sm text-code-sm text-emerald-700 font-semibold">v ≈ 331.3 + 0.606·T</span>
+</div>
+<div class="p-space-xs rounded bg-slate-50 border border-slate-200/70">
+<span class="font-label-sm text-[11px] text-slate-500 block">Acoustic Intensity</span>
+<span class="font-code-sm text-code-sm text-emerald-700 font-semibold">I = Δp² / (2 · ρ · v)</span>
+</div>
+</div>
+</div>
+<!-- Mini Inline Calculator Panel -->
+<div class="hidden w-full bg-white border border-slate-200 rounded-xl p-space-md space-y-space-sm shadow-xl" id="calc-panel">
+<div class="flex items-center justify-between">
+<div class="flex items-center gap-space-xs text-slate-900">
+<span class="material-symbols-outlined text-emerald-600 text-[18px]">calculate</span>
+<span class="font-headline-sm text-label-sm font-bold">Standard Scientific Terminal</span>
+</div>
+<button class="text-slate-400 hover:text-slate-700 p-1" id="calc-close-btn">
+<span class="material-symbols-outlined text-[16px]">close</span>
+</button>
+</div>
+<div class="w-full bg-slate-50 border border-slate-200/80 rounded-lg p-2 text-right">
+<div class="font-code-sm text-[11px] text-slate-400 h-4" id="calc-expression">680 * (340 + 34) / 340</div>
+<div class="font-code-sm text-headline-sm font-bold text-sky-700 truncate" id="calc-screen">748</div>
+</div>
+<div class="grid grid-cols-4 gap-1.5 font-code-sm text-code-sm">
+<button class="calc-key h-9 rounded bg-slate-100 hover:bg-slate-200 text-slate-600 font-semibold" data-val="C">AC</button>
+<button class="calc-key h-9 rounded bg-slate-100 hover:bg-slate-200 text-slate-700 font-medium" data-val="(">(</button>
+<button class="calc-key h-9 rounded bg-slate-100 hover:bg-slate-200 text-slate-700 font-medium" data-val=")">)</button>
+<button class="calc-key h-9 rounded bg-sky-50 hover:bg-sky-100 text-sky-700 font-bold border border-sky-200" data-val="/">÷</button>
+<button class="calc-key h-9 rounded bg-slate-50 hover:bg-slate-100 text-slate-800 border border-slate-200/60" data-val="7">7</button>
+<button class="calc-key h-9 rounded bg-slate-50 hover:bg-slate-100 text-slate-800 border border-slate-200/60" data-val="8">8</button>
+<button class="calc-key h-9 rounded bg-slate-50 hover:bg-slate-100 text-slate-800 border border-slate-200/60" data-val="9">9</button>
+<button class="calc-key h-9 rounded bg-sky-50 hover:bg-sky-100 text-sky-700 font-bold border border-sky-200" data-val="*">×</button>
+<button class="calc-key h-9 rounded bg-slate-50 hover:bg-slate-100 text-slate-800 border border-slate-200/60" data-val="4">4</button>
+<button class="calc-key h-9 rounded bg-slate-50 hover:bg-slate-100 text-slate-800 border border-slate-200/60" data-val="5">5</button>
+<button class="calc-key h-9 rounded bg-slate-50 hover:bg-slate-100 text-slate-800 border border-slate-200/60" data-val="6">6</button>
+<button class="calc-key h-9 rounded bg-sky-50 hover:bg-sky-100 text-sky-700 font-bold border border-sky-200" data-val="-">-</button>
+<button class="calc-key h-9 rounded bg-slate-50 hover:bg-slate-100 text-slate-800 border border-slate-200/60" data-val="1">1</button>
+<button class="calc-key h-9 rounded bg-slate-50 hover:bg-slate-100 text-slate-800 border border-slate-200/60" data-val="2">2</button>
+<button class="calc-key h-9 rounded bg-slate-50 hover:bg-slate-100 text-slate-800 border border-slate-200/60" data-val="3">3</button>
+<button class="calc-key h-9 rounded bg-sky-50 hover:bg-sky-100 text-sky-700 font-bold border border-sky-200" data-val="+">+</button>
+<button class="calc-key h-9 rounded bg-slate-50 hover:bg-slate-100 text-slate-800 border border-slate-200/60" data-val="0">0</button>
+<button class="calc-key h-9 rounded bg-slate-50 hover:bg-slate-100 text-slate-800 border border-slate-200/60" data-val=".">.</button>
+<button class="calc-key h-9 rounded bg-red-50 hover:bg-red-100 text-red-600 border border-red-200" data-val="DEL">⌫</button>
+<button class="calc-key h-9 rounded bg-violet-600 hover:bg-violet-700 text-white font-bold shadow-sm" data-val="=">=</button>
+</div>
+</div>
+<!-- Question Palette & Filter Strip -->
+<div class="w-full bg-white rounded-xl p-space-sm space-y-space-xs border border-slate-200/80 shadow-sm">
+<!-- Mini Metric Row -->
+<div class="flex items-center justify-between text-label-sm font-label-sm">
+<div class="flex items-center gap-space-sm">
+<span class="text-slate-900 font-bold">Question 14 of 45</span>
+<span class="text-slate-300">•</span>
+<span class="text-emerald-700 font-semibold flex items-center gap-1"><span class="w-2 h-2 rounded-full bg-emerald-500"></span>31 Saved</span>
+</div>
+<div class="flex items-center gap-space-xs text-slate-500 font-medium">
+<span class="w-2 h-2 rounded-full bg-amber-500"></span>
+<span>3 Flagged</span>
+<span class="w-2 h-2 rounded-full bg-slate-300 ml-1"></span>
+<span>11 Left</span>
+</div>
+</div>
+<!-- Filter Pills -->
+<div class="flex items-center gap-1.5 pt-1 overflow-x-auto no-scrollbar">
+<button class="palette-filter-btn px-2.5 py-1 rounded-full bg-violet-50 text-violet-700 border border-violet-200 text-label-sm font-semibold hover:bg-violet-100 transition-colors">
+        All (45)
+      </button>
+<button class="palette-filter-btn px-2.5 py-1 rounded-full bg-slate-100 text-slate-600 border border-slate-200/70 text-label-sm font-medium hover:text-slate-900 transition-colors flex items-center gap-1">
+<span class="w-1.5 h-1.5 rounded-full bg-amber-500"></span>
+        Flagged (3)
+      </button>
+<button class="palette-filter-btn px-2.5 py-1 rounded-full bg-slate-100 text-slate-600 border border-slate-200/70 text-label-sm font-medium hover:text-slate-900 transition-colors">
+        Unanswered (11)
+      </button>
+</div>
+<!-- Horizontal Question Strip (1 to 24 preview scroll) -->
+<div class="flex items-center gap-1.5 overflow-x-auto py-1 no-scrollbar scroll-smooth" id="question-strip">
+<!-- Q1-13 Answered in soft teal/emerald pastels -->
+<button class="w-8 h-8 rounded-lg bg-emerald-50 border border-emerald-200 text-emerald-800 font-code-sm text-code-sm font-semibold flex items-center justify-center shrink-0 hover:bg-emerald-100">1</button>
+<button class="w-8 h-8 rounded-lg bg-emerald-50 border border-emerald-200 text-emerald-800 font-code-sm text-code-sm font-semibold flex items-center justify-center shrink-0 hover:bg-emerald-100">2</button>
+<button class="w-8 h-8 rounded-lg bg-emerald-50 border border-emerald-200 text-emerald-800 font-code-sm text-code-sm font-semibold flex items-center justify-center shrink-0 hover:bg-emerald-100">3</button>
+<button class="w-8 h-8 rounded-lg bg-emerald-50 border border-emerald-200 text-emerald-800 font-code-sm text-code-sm font-semibold flex items-center justify-center shrink-0 hover:bg-emerald-100">4</button>
+<button class="w-8 h-8 rounded-lg bg-emerald-50 border border-emerald-200 text-emerald-800 font-code-sm text-code-sm font-semibold flex items-center justify-center shrink-0 hover:bg-emerald-100">5</button>
+<button class="w-8 h-8 rounded-lg bg-emerald-50 border border-emerald-200 text-emerald-800 font-code-sm text-code-sm font-semibold flex items-center justify-center shrink-0 hover:bg-emerald-100">6</button>
+<!-- Q7 Flagged + Answered -->
+<button class="w-8 h-8 rounded-lg bg-emerald-50 border border-emerald-200 text-emerald-800 font-code-sm text-code-sm font-semibold flex items-center justify-center shrink-0 relative hover:bg-emerald-100">
+        7
+        <span class="absolute -top-0.5 -right-0.5 w-2 h-2 rounded-full bg-amber-500 border border-white"></span>
+</button>
+<button class="w-8 h-8 rounded-lg bg-emerald-50 border border-emerald-200 text-emerald-800 font-code-sm text-code-sm font-semibold flex items-center justify-center shrink-0 hover:bg-emerald-100">8</button>
+<button class="w-8 h-8 rounded-lg bg-emerald-50 border border-emerald-200 text-emerald-800 font-code-sm text-code-sm font-semibold flex items-center justify-center shrink-0 hover:bg-emerald-100">9</button>
+<button class="w-8 h-8 rounded-lg bg-emerald-50 border border-emerald-200 text-emerald-800 font-code-sm text-code-sm font-semibold flex items-center justify-center shrink-0 hover:bg-emerald-100">10</button>
+<!-- Q11 Flagged -->
+<button class="w-8 h-8 rounded-lg bg-emerald-50 border border-emerald-200 text-emerald-800 font-code-sm text-code-sm font-semibold flex items-center justify-center shrink-0 relative hover:bg-emerald-100">
+        11
+        <span class="absolute -top-0.5 -right-0.5 w-2 h-2 rounded-full bg-amber-500 border border-white"></span>
+</button>
+<button class="w-8 h-8 rounded-lg bg-emerald-50 border border-emerald-200 text-emerald-800 font-code-sm text-code-sm font-semibold flex items-center justify-center shrink-0 hover:bg-emerald-100">12</button>
+<button class="w-8 h-8 rounded-lg bg-emerald-50 border border-emerald-200 text-emerald-800 font-code-sm text-code-sm font-semibold flex items-center justify-center shrink-0 hover:bg-emerald-100">13</button>
+<!-- Q14 ACTIVE (Current) in vibrant rich violet -->
+<button class="w-8 h-8 rounded-lg bg-violet-600 text-white font-code-sm text-code-sm font-bold flex items-center justify-center shrink-0 shadow-md shadow-violet-200 relative ring-2 ring-violet-400">
+        14
+        <span class="absolute -bottom-1 w-3 h-1 rounded-full bg-sky-400"></span>
+</button>
+<!-- Q15-22 Unvisited -->
+<button class="w-8 h-8 rounded-lg bg-slate-100 text-slate-500 font-code-sm text-code-sm flex items-center justify-center shrink-0 hover:bg-slate-200 border border-slate-200/60">15</button>
+<button class="w-8 h-8 rounded-lg bg-slate-100 text-slate-500 font-code-sm text-code-sm flex items-center justify-center shrink-0 hover:bg-slate-200 border border-slate-200/60">16</button>
+<button class="w-8 h-8 rounded-lg bg-slate-100 text-slate-500 font-code-sm text-code-sm flex items-center justify-center shrink-0 hover:bg-slate-200 border border-slate-200/60">17</button>
+<button class="w-8 h-8 rounded-lg bg-slate-100 text-slate-500 font-code-sm text-code-sm flex items-center justify-center shrink-0 hover:bg-slate-200 border border-slate-200/60">18</button>
+<button class="w-8 h-8 rounded-lg bg-slate-100 text-slate-500 font-code-sm text-code-sm flex items-center justify-center shrink-0 hover:bg-slate-200 border border-slate-200/60">19</button>
+<button class="w-8 h-8 rounded-lg bg-slate-100 text-slate-500 font-code-sm text-code-sm flex items-center justify-center shrink-0 hover:bg-slate-200 border border-slate-200/60">20</button>
+<button class="w-8 h-8 rounded-lg bg-slate-100 text-slate-500 font-code-sm text-code-sm flex items-center justify-center shrink-0 hover:bg-slate-200 border border-slate-200/60">21</button>
+<button class="w-8 h-8 rounded-lg bg-slate-100 text-slate-500 font-code-sm text-code-sm flex items-center justify-center shrink-0 hover:bg-slate-200 border border-slate-200/60">22</button>
+<span class="text-slate-400 font-code-sm text-label-sm px-1 shrink-0 font-medium">...45</span>
+</div>
+</div>
+<!-- Primary Question Card (Focus Arena) -->
+<div class="w-full bg-white rounded-2xl p-space-md space-y-space-md border border-slate-200/90 shadow-md transition-all" id="active-question-card">
+<!-- Question Header & Badges -->
+<div class="flex items-start justify-between gap-space-sm">
+<div class="flex flex-wrap items-center gap-1.5">
+<span class="px-2.5 py-0.5 rounded-full bg-violet-50 text-violet-800 border border-violet-200 font-label-sm text-label-sm font-semibold">
+          Section B: Resonance &amp; Doppler
+        </span>
+<span class="px-2 py-0.5 rounded-full bg-slate-100 border border-slate-200 text-slate-700 font-code-sm text-[11px] font-semibold">
+          +4.00 Pts
+        </span>
+<span class="px-2 py-0.5 rounded-full bg-sky-50 border border-sky-200 text-sky-800 font-code-sm text-[11px] font-semibold">
+          Single Choice
+        </span>
+</div>
+<!-- Flag Toggle Button -->
+<button aria-label="Flag Question for Review" class="flex items-center gap-1 px-2.5 py-1 rounded-lg bg-slate-100 hover:bg-slate-200 border border-slate-200 text-slate-600 transition-colors" id="flag-btn">
+<span class="material-symbols-outlined text-[18px]" id="flag-icon">bookmark</span>
+<span class="font-label-sm text-label-sm font-medium" id="flag-label">Review</span>
+</button>
+</div>
+<!-- Question Prompt -->
+<div class="space-y-space-sm">
+<p class="font-body-lg text-body-lg text-slate-900 leading-relaxed font-medium">
+        An observer moves directly toward a stationary sound source emitting a constant frequency of <span class="font-code-sm text-violet-700 font-bold bg-violet-50 px-1.5 py-0.5 rounded border border-violet-200">f₀ = 680 Hz</span> with a speed of <span class="font-code-sm text-sky-700 font-bold bg-sky-50 px-1.5 py-0.5 rounded border border-sky-200">v_o = 34 m/s</span>.
+      </p>
+<p class="font-body-md text-body-md text-slate-600 leading-relaxed">
+        Assuming the ambient air is still and the speed of acoustic propagation in air is measured at <span class="font-code-sm text-slate-900 font-semibold bg-slate-100 px-1.5 py-0.5 rounded">v = 340 m/s</span>, what is the apparent frequency <span class="font-code-sm text-emerald-700 font-bold bg-emerald-50 px-1.5 py-0.5 rounded border border-emerald-200">f'</span> recorded by the detector of the moving observer?
+      </p>
+</div>
+<!-- Acoustic Wave Diagram Vector Card (Light Mode Optimized) -->
+<div class="w-full bg-slate-50 border border-slate-200 rounded-xl p-space-sm overflow-hidden flex flex-col gap-2 shadow-inner">
+<div class="flex items-center justify-between text-label-sm font-label-sm text-slate-500">
+<span class="flex items-center gap-1 font-medium text-slate-700">
+<span class="material-symbols-outlined text-[15px] text-sky-600">graphic_eq</span>
+          Wavefront Compression Vector
+        </span>
+<span class="font-code-sm text-[10px] text-slate-400 font-medium">PHYS_FIG_402.14</span>
+</div>
+<!-- Inline Lightweight Vector Visual -->
+<div class="w-full h-24 flex items-center justify-center relative bg-white/70 rounded-lg border border-slate-200/60">
+<svg class="w-full h-full" fill="none" viewbox="0 0 340 90" xmlns="http://www.w3.org/2000/svg">
+<!-- Stationary Source (Speaker) -->
+<circle cx="50" cy="45" fill="#f1f5f9" r="14" stroke="#64748b" stroke-width="2"></circle>
+<path d="M46 39L53 35V55L46 51H42V39H46Z" fill="#7c3aed"></path>
+<text fill="#475569" font-family="Inter" font-size="9" font-weight="600" x="25" y="75">Source (v_s=0)</text>
+<!-- Propagating Concentric Waves -->
+<circle cx="50" cy="45" opacity="0.35" r="28" stroke="#0284c7" stroke-dasharray="3 3" stroke-width="1.75"></circle>
+<circle cx="50" cy="45" opacity="0.6" r="48" stroke="#0284c7" stroke-dasharray="4 4" stroke-width="1.75"></circle>
+<circle cx="50" cy="45" opacity="0.85" r="70" stroke="#0284c7" stroke-width="2"></circle>
+<circle cx="50" cy="45" opacity="0.95" r="92" stroke="#059669" stroke-width="2"></circle>
+<!-- Moving Observer Vehicle -->
+<rect fill="#7c3aed" height="18" rx="4" width="34" x="250" y="36"></rect>
+<circle cx="258" cy="56" fill="#1e293b" r="3.5"></circle>
+<circle cx="276" cy="56" fill="#1e293b" r="3.5"></circle>
+<path d="M250 45L232 45" stroke="#059669" stroke-linecap="round" stroke-width="2.5"></path>
+<path d="M236 41L230 45L236 49" stroke="#059669" stroke-linecap="round" stroke-linejoin="round" stroke-width="2.5"></path>
+<text fill="#334155" font-family="Inter" font-size="9" font-weight="600" x="238" y="75">Observer (v_o)</text>
+<text fill="#059669" font-family="JetBrains Mono" font-size="9" font-weight="700" x="210" y="36">34 m/s ←</text>
+</svg>
+</div>
+</div>
+<!-- Interactive Scratchout / Tool Pill Bar -->
+<div class="flex items-center justify-between text-label-sm font-label-sm pt-1">
+<span class="text-slate-500 font-medium">Select one correct alternative:</span>
+<button class="flex items-center gap-1 text-slate-500 hover:text-violet-700 font-medium transition-colors" id="elim-btn">
+<span class="material-symbols-outlined text-[16px] text-violet-600">flaky</span>
+<span>50/50 Eliminator</span>
+</button>
+</div>
+<!-- Answer Options Arena -->
+<div class="space-y-space-sm" id="options-group">
+<!-- Option A -->
+<div class="quiz-option cursor-pointer w-full rounded-xl p-space-md bg-white hover:bg-slate-50 border border-slate-200 transition-all flex items-center justify-between shadow-sm" data-option="A">
+<div class="flex items-center gap-space-md min-w-0">
+<div class="opt-badge w-9 h-9 rounded-lg bg-slate-100 text-slate-700 font-code-sm font-bold flex items-center justify-center shrink-0 border border-slate-200 transition-colors">
+            A
+          </div>
+<div class="flex flex-col min-w-0">
+<span class="opt-text font-body-lg text-body-lg text-slate-900 font-medium">612 Hz</span>
+<span class="font-code-sm text-[11px] text-slate-500">f' = f₀ · (1 - v_o / v)</span>
+</div>
+</div>
+<div class="opt-check w-6 h-6 rounded-full border border-slate-300 bg-white flex items-center justify-center text-transparent transition-all">
+<span class="material-symbols-outlined text-[16px]">check</span>
+</div>
+</div>
+<!-- Option B (Selected by default to demonstrate high-contrast premium active state) -->
+<div class="quiz-option cursor-pointer w-full rounded-xl p-space-md bg-violet-50/70 border-2 border-violet-600 shadow-[0_4px_16px_rgba(124,58,237,0.12)] transition-all flex items-center justify-between" data-option="B">
+<div class="flex items-center gap-space-md min-w-0">
+<div class="opt-badge w-9 h-9 rounded-lg bg-violet-600 text-white font-code-sm font-bold flex items-center justify-center shrink-0 shadow-sm">
+            B
+          </div>
+<div class="flex flex-col min-w-0">
+<span class="opt-text font-body-lg text-body-lg text-violet-950 font-bold">748 Hz</span>
+<span class="font-code-sm text-[11px] text-violet-700 font-semibold">f' = 680 · (1 + 34/340) = 680 · 1.10</span>
+</div>
+</div>
+<div class="opt-check w-6 h-6 rounded-full bg-violet-600 text-white flex items-center justify-center shadow-sm transition-all">
+<span class="material-symbols-outlined text-[16px] font-bold">check</span>
+</div>
+</div>
+<!-- Option C -->
+<div class="quiz-option cursor-pointer w-full rounded-xl p-space-md bg-white hover:bg-slate-50 border border-slate-200 transition-all flex items-center justify-between shadow-sm" data-option="C">
+<div class="flex items-center gap-space-md min-w-0">
+<div class="opt-badge w-9 h-9 rounded-lg bg-slate-100 text-slate-700 font-code-sm font-bold flex items-center justify-center shrink-0 border border-slate-200 transition-colors">
+            C
+          </div>
+<div class="flex flex-col min-w-0">
+<span class="opt-text font-body-lg text-body-lg text-slate-900 font-medium">714 Hz</span>
+<span class="font-code-sm text-[11px] text-slate-500">f' = f₀ · (v / (v - v_o / 2))</span>
+</div>
+</div>
+<div class="opt-check w-6 h-6 rounded-full border border-slate-300 bg-white flex items-center justify-center text-transparent transition-all">
+<span class="material-symbols-outlined text-[16px]">check</span>
+</div>
+</div>
+<!-- Option D -->
+<div class="quiz-option cursor-pointer w-full rounded-xl p-space-md bg-white hover:bg-slate-50 border border-slate-200 transition-all flex items-center justify-between shadow-sm" data-option="D">
+<div class="flex items-center gap-space-md min-w-0">
+<div class="opt-badge w-9 h-9 rounded-lg bg-slate-100 text-slate-700 font-code-sm font-bold flex items-center justify-center shrink-0 border border-slate-200 transition-colors">
+            D
+          </div>
+<div class="flex flex-col min-w-0">
+<span class="opt-text font-body-lg text-body-lg text-slate-900 font-medium">800 Hz</span>
+<span class="font-code-sm text-[11px] text-slate-500">f' = f₀ · (1 + 2·v_o / v)</span>
+</div>
+</div>
+<div class="opt-check w-6 h-6 rounded-full border border-slate-300 bg-white flex items-center justify-center text-transparent transition-all">
+<span class="material-symbols-outlined text-[16px]">check</span>
+</div>
+</div>
+</div>
+<!-- Quick Action / Clear Answer Strip -->
+<div class="flex items-center justify-between pt-space-xs text-label-sm font-label-sm">
+<button class="text-slate-500 hover:text-red-600 flex items-center gap-1 transition-colors font-medium" id="clear-selection-btn">
+<span class="material-symbols-outlined text-[16px]">backspace</span>
+<span>Clear selection</span>
+</button>
+<div class="flex items-center gap-1 text-emerald-700 font-semibold">
+<span class="material-symbols-outlined text-[16px]">cloud_done</span>
+<span class="font-code-sm text-[11px]">Draft synced</span>
+</div>
+</div>
+</div>
+<!-- Exam Safety Notice & Submission Bar -->
+<div class="w-full bg-white border border-slate-200/90 rounded-xl p-space-sm flex items-center justify-between shadow-sm">
+<div class="flex items-center gap-space-xs text-slate-600">
+<span class="material-symbols-outlined text-[16px] text-violet-600">security</span>
+<span class="font-label-sm text-[11px] font-medium">Full-screen lock is enforced by SchoolCore Proctor</span>
+</div>
+<button class="text-red-600 font-label-sm text-label-sm font-bold hover:underline hover:text-red-700" id="submit-exam-modal-btn">
+      Submit Exam
+    </button>
+</div>
+<!-- Submit Exam Confirmation Modal Backdrop -->
+<div class="hidden fixed inset-0 z-50 bg-slate-900/40 backdrop-blur-sm flex items-center justify-center p-gutter-mobile" id="submit-modal">
+<div class="w-full max-w-sm bg-white border border-slate-200 rounded-2xl p-space-lg space-y-space-md shadow-2xl">
+<div class="flex items-center gap-space-sm text-red-600">
+<span class="material-symbols-outlined text-[28px]">warning</span>
+<h3 class="font-headline-sm text-headline-sm font-bold text-slate-900">Submit Physics Midterm?</h3>
+</div>
+<p class="font-body-md text-body-sm text-slate-600 leading-relaxed">
+        You have answered <span class="text-emerald-700 font-bold">31 of 45</span> questions. There are <span class="text-amber-600 font-bold">3 flagged</span> and <span class="text-slate-500 font-bold">11 unvisited</span> questions remaining.
+      </p>
+<div class="p-space-sm bg-slate-50 border border-slate-200 rounded-lg font-code-sm text-[11px] text-slate-600">
+        Time Remaining: 42 minutes 15 seconds.<br/>Once submitted, you cannot revisit your answers.
+      </div>
+<div class="flex items-center justify-end gap-space-sm pt-space-xs">
+<button class="h-11 px-space-md rounded-xl bg-slate-100 hover:bg-slate-200 text-slate-700 font-label-md font-semibold" id="modal-cancel-btn">
+          Return to Exam
+        </button>
+<button class="h-11 px-space-md rounded-xl bg-red-600 hover:bg-red-700 text-white font-label-md font-bold shadow-md shadow-red-200" id="modal-confirm-btn">
+          Confirm Submit
+        </button>
+</div>
+</div>
+</div>
+</div>
+<script>
+  // Selection handling logic for MCQ Options
+  const optionCards = document.querySelectorAll('.quiz-option');
+  optionCards.forEach(card => {
+    card.addEventListener('click', () => {
+      // Clear previous active states
+      optionCards.forEach(c => {
+        c.classList.remove('bg-violet-50/70', 'border-2', 'border-violet-600', 'shadow-[0_4px_16px_rgba(124,58,237,0.12)]');
+        c.classList.add('bg-white', 'border', 'border-slate-200', 'shadow-sm');
+        
+        const badge = c.querySelector('.opt-badge');
+        badge.classList.remove('bg-violet-600', 'text-white');
+        badge.classList.add('bg-slate-100', 'text-slate-700', 'border', 'border-slate-200');
+
+        const text = c.querySelector('.opt-text');
+        text.classList.remove('text-violet-950', 'font-bold');
+        text.classList.add('text-slate-900', 'font-medium');
+
+        const check = c.querySelector('.opt-check');
+        check.classList.remove('bg-violet-600', 'text-white');
+        check.classList.add('border', 'border-slate-300', 'bg-white', 'text-transparent');
+      });
+
+      // Apply active styling
+      card.classList.remove('bg-white', 'border-slate-200', 'shadow-sm');
+      card.classList.add('bg-violet-50/70', 'border-2', 'border-violet-600', 'shadow-[0_4px_16px_rgba(124,58,237,0.12)]');
+
+      const badge = card.querySelector('.opt-badge');
+      badge.classList.remove('bg-slate-100', 'text-slate-700', 'border', 'border-slate-200');
+      badge.classList.add('bg-violet-600', 'text-white');
+
+      const text = card.querySelector('.opt-text');
+      text.classList.remove('text-slate-900', 'font-medium');
+      text.classList.add('text-violet-950', 'font-bold');
+
+      const check = card.querySelector('.opt-check');
+      check.classList.remove('border', 'border-slate-300', 'bg-white', 'text-transparent');
+      check.classList.add('bg-violet-600', 'text-white');
+    });
+  });
+
+  // Clear Selection handler
+  const clearBtn = document.getElementById('clear-selection-btn');
+  clearBtn.addEventListener('click', () => {
+    optionCards.forEach(c => {
+      c.classList.remove('bg-violet-50/70', 'border-2', 'border-violet-600', 'shadow-[0_4px_16px_rgba(124,58,237,0.12)]');
+      c.classList.add('bg-white', 'border', 'border-slate-200', 'shadow-sm');
+
+      const badge = c.querySelector('.opt-badge');
+      badge.classList.remove('bg-violet-600', 'text-white');
+      badge.classList.add('bg-slate-100', 'text-slate-700', 'border', 'border-slate-200');
+
+      const text = c.querySelector('.opt-text');
+      text.classList.remove('text-violet-950', 'font-bold');
+      text.classList.add('text-slate-900', 'font-medium');
+
+      const check = c.querySelector('.opt-check');
+      check.classList.remove('bg-violet-600', 'text-white');
+      check.classList.add('border', 'border-slate-300', 'bg-white', 'text-transparent');
+    });
+  });
+
+  // Flag Toggle Handler
+  const flagBtn = document.getElementById('flag-btn');
+  const flagIcon = document.getElementById('flag-icon');
+  const flagLabel = document.getElementById('flag-label');
+  let isFlagged = false;
+
+  flagBtn.addEventListener('click', () => {
+    isFlagged = !isFlagged;
+    if (isFlagged) {
+      flagBtn.classList.remove('text-slate-600', 'bg-slate-100');
+      flagBtn.classList.add('text-amber-700', 'bg-amber-50', 'border-amber-300');
+      flagIcon.setAttribute('style', "font-variation-settings: 'FILL' 1;");
+      flagLabel.textContent = 'Flagged';
+    } else {
+      flagBtn.classList.remove('text-amber-700', 'bg-amber-50', 'border-amber-300');
+      flagBtn.classList.add('text-slate-600', 'bg-slate-100');
+      flagIcon.removeAttribute('style');
+      flagLabel.textContent = 'Review';
+    }
+  });
+
+  // Formula Sheet Drawer Toggling
+  const formulaToggle = document.getElementById('formula-toggle-btn');
+  const formulaDrawer = document.getElementById('formula-drawer');
+  const formulaClose = document.getElementById('formula-close-btn');
+
+  formulaToggle.addEventListener('click', () => {
+    formulaDrawer.classList.toggle('hidden');
+    if (!calcPanel.classList.contains('hidden')) {
+      calcPanel.classList.add('hidden');
+    }
+  });
+  formulaClose.addEventListener('click', () => {
+    formulaDrawer.classList.add('hidden');
+  });
+
+  // Mini Scientific Calculator Panel
+  const calcToggle = document.getElementById('calc-toggle-btn');
+  const calcPanel = document.getElementById('calc-panel');
+  const calcClose = document.getElementById('calc-close-btn');
+  const calcScreen = document.getElementById('calc-screen');
+  const calcExpr = document.getElementById('calc-expression');
+  let exprStr = '680 * (340 + 34) / 340';
+
+  calcToggle.addEventListener('click', () => {
+    calcPanel.classList.toggle('hidden');
+    if (!formulaDrawer.classList.contains('hidden')) {
+      formulaDrawer.classList.add('hidden');
+    }
+  });
+  calcClose.addEventListener('click', () => {
+    calcPanel.classList.add('hidden');
+  });
+
+  document.querySelectorAll('.calc-key').forEach(button => {
+    button.addEventListener('click', () => {
+      const val = button.getAttribute('data-val');
+      if (val === 'C') {
+        exprStr = '';
+        calcScreen.innerText = '0';
+        calcExpr.innerText = '';
+      } else if (val === 'DEL') {
+        exprStr = exprStr.slice(0, -1);
+        calcExpr.innerText = exprStr;
+      } else if (val === '=') {
+        try {
+          const safeEval = Function('"use strict";return (' + exprStr + ')')();
+          calcScreen.innerText = Math.round(safeEval * 100) / 100;
+        } catch(e) {
+          calcScreen.innerText = 'Err';
+        }
+      } else {
+        exprStr += val;
+        calcExpr.innerText = exprStr;
+      }
+    });
+  });
+
+  // 50/50 Eliminator micro-action
+  const elimBtn = document.getElementById('elim-btn');
+  let eliminated = false;
+  elimBtn.addEventListener('click', () => {
+    eliminated = !eliminated;
+    const optA = document.querySelector('[data-option="A"]');
+    const optD = document.querySelector('[data-option="D"]');
+    if (eliminated) {
+      optA.classList.add('opacity-40', 'line-through', 'bg-slate-100');
+      optD.classList.add('opacity-40', 'line-through', 'bg-slate-100');
+      elimBtn.classList.add('text-violet-700', 'font-bold');
+    } else {
+      optA.classList.remove('opacity-40', 'line-through', 'bg-slate-100');
+      optD.classList.remove('opacity-40', 'line-through', 'bg-slate-100');
+      elimBtn.classList.remove('text-violet-700', 'font-bold');
+    }
+  });
+
+  // Submission Safeguard Modal
+  const submitModal = document.getElementById('submit-modal');
+  const openModalBtn = document.getElementById('submit-exam-modal-btn');
+  const cancelModalBtn = document.getElementById('modal-cancel-btn');
+  const confirmModalBtn = document.getElementById('modal-confirm-btn');
+
+  openModalBtn.addEventListener('click', () => {
+    submitModal.classList.remove('hidden');
+  });
+  cancelModalBtn.addEventListener('click', () => {
+    submitModal.classList.add('hidden');
+  });
+  confirmModalBtn.addEventListener('click', () => {
+    submitModal.classList.add('hidden');
+    alert('Physics Midterm Submitted Successfully.');
+  });
+</script></main><footer class="fixed bottom-0 inset-x-0 z-50 pb-safe bg-white/95 backdrop-blur-2xl border-t border-slate-200/90 shadow-[0_-4px_24px_rgba(15,23,42,0.08)]"><div class="flex items-center justify-between h-20 px-gutter-mobile gap-space-sm"><button class="h-12 px-space-md rounded-xl bg-slate-100 hover:bg-slate-200 border border-slate-200 text-slate-700 flex items-center gap-space-xs transition-all"><span class="material-symbols-outlined text-[18px]">arrow_back</span><span class="text-label-md font-label-md font-semibold">Prev</span></button><div class="flex items-center gap-space-xs"><button aria-label="Flag question" class="h-12 px-space-sm rounded-xl bg-slate-100 hover:bg-slate-200 border border-slate-200 text-slate-500 hover:text-slate-800 flex items-center gap-space-xs transition-colors"><span class="material-symbols-outlined text-[20px] text-slate-500">flag</span></button><button aria-label="Open question overview drawer" class="h-12 px-space-md rounded-xl bg-slate-100 hover:bg-slate-200 border border-slate-200 text-slate-800 flex items-center gap-space-xs transition-colors"><span class="material-symbols-outlined text-[18px] text-sky-600">grid_view</span><span class="text-label-sm font-label-sm font-bold">14 of 30</span></button></div><button class="h-12 px-space-md rounded-xl bg-gradient-to-r from-violet-600 to-indigo-600 hover:from-violet-700 hover:to-indigo-700 text-white flex items-center gap-space-xs shadow-md shadow-violet-200 transition-transform active:scale-95"><span class="text-label-md font-label-md font-bold">Next</span><span class="material-symbols-outlined text-[18px]">arrow_forward</span></button></div></footer></body></html>

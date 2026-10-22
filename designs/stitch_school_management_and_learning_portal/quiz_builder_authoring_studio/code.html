@@ -1,0 +1,436 @@
+<!DOCTYPE html>
+
+<html class="dark" lang="en"><head><meta charset="utf-8"/><meta content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no, viewport-fit=cover" name="viewport"/><meta content="mobile_stack" name="shell-type"/><style>@layer base{html,body{width:100vw;margin:0;padding:0;}body{overscroll-behavior:none;}.pb-safe{padding-bottom:env(safe-area-inset-bottom,0px);}.pt-safe{padding-top:env(safe-area-inset-top,0px);}main>:first-child{margin-top:0!important;}main>:last-child{margin-bottom:0!important;}}::-webkit-scrollbar{display:none;}</style><link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@20..48,100..700,0..1,-50..200" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@100..900&family=Plus+Jakarta+Sans:wght@100..900&display=swap" rel="stylesheet"/><script src="https://cdn.tailwindcss.com"></script><script id="tailwind-config">tailwind.config = { darkMode: "class", theme: { extend: { colors: { "surface-container-low": "#181c24", "on-primary-container": "#340080", "secondary": "#4cd7f6", "on-secondary": "#003640", "tertiary-fixed-dim": "#4edea3", "tertiary": "#4edea3", "on-tertiary": "#003824", "tertiary-fixed": "#6ffbbe", "on-secondary-fixed-variant": "#004e5c", "inverse-surface": "#dfe2ee", "surface-container-lowest": "#0a0e16", "secondary-container": "#03b5d3", "secondary-fixed-dim": "#4cd7f6", "surface-tint": "#d0bcff", "on-tertiary-fixed-variant": "#005236", "primary-container": "#a078ff", "primary-fixed": "#e9ddff", "on-primary-fixed-variant": "#5516be", "primary-fixed-dim": "#d0bcff", "error-container": "#93000a", "error": "#ffb4ab", "outline": "#958ea0", "background": "#0f131c", "on-surface": "#dfe2ee", "secondary-fixed": "#acedff", "on-error-container": "#ffdad6", "surface-container-high": "#262a33", "on-error": "#690005", "on-background": "#dfe2ee", "inverse-primary": "#6d3bd7", "surface-dim": "#0f131c", "on-secondary-container": "#00424e", "surface-container-highest": "#31353e", "inverse-on-surface": "#2c3039", "outline-variant": "#494454", "on-secondary-fixed": "#001f26", "surface-bright": "#353942", "tertiary-container": "#00a572", "surface-container": "#1c2028", "surface": "#0f131c", "surface-variant": "#31353e", "on-tertiary-container": "#00311f", "primary": "#d0bcff", "on-primary-fixed": "#23005c", "on-primary": "#3c0091", "on-surface-variant": "#cbc3d7", "on-tertiary-fixed": "#002113" }, borderRadius: { "DEFAULT": "0.25rem", "lg": "0.5rem", "xl": "0.75rem", "full": "9999px" }, spacing: { "gutter": "1.5rem", "margin": "2rem", "space-sm": "0.5rem", "margin-mobile": "1rem", "space-xs": "0.25rem", "space-lg": "1.5rem", "space-md": "1rem", "space-xl": "2.5rem", "gutter-mobile": "1rem" }, fontFamily: { "body-md": ["Inter"], "body-sm": ["Inter"], "headline-sm": ["Plus Jakarta Sans"], "headline-md": ["Plus Jakarta Sans"], "headline-lg": ["Plus Jakarta Sans"], "headline-display": ["Plus Jakarta Sans"], "body-lg": ["Inter"], "label-sm": ["Inter"], "headline-display-mobile": ["Plus Jakarta Sans"], "code-sm": ["JetBrains Mono"], "headline-lg-mobile": ["Plus Jakarta Sans"], "label-md": ["Inter"] }, fontSize: { "body-md": ["1rem", { "lineHeight": "1.5rem", "letterSpacing": "0em", "fontWeight": "400" }], "body-sm": ["0.875rem", { "lineHeight": "1.25rem", "letterSpacing": "0em", "fontWeight": "400" }], "headline-sm": ["1.25rem", { "lineHeight": "1.75rem", "letterSpacing": "-0.01em", "fontWeight": "600" }], "headline-md": ["1.75rem", { "lineHeight": "2.25rem", "letterSpacing": "-0.02em", "fontWeight": "600" }], "headline-lg": ["2.5rem", { "lineHeight": "3rem", "letterSpacing": "-0.025em", "fontWeight": "600" }], "headline-display": ["3.5rem", { "lineHeight": "4.25rem", "letterSpacing": "-0.03em", "fontWeight": "700" }], "body-lg": ["1.125rem", { "lineHeight": "1.75rem", "letterSpacing": "-0.01em", "fontWeight": "400" }], "label-sm": ["0.75rem", { "lineHeight": "1rem", "letterSpacing": "0.04em", "fontWeight": "600" }], "headline-display-mobile": ["2.25rem", { "lineHeight": "2.75rem", "letterSpacing": "-0.02em", "fontWeight": "700" }], "code-sm": ["0.8125rem", { "lineHeight": "1.25rem", "letterSpacing": "0em", "fontWeight": "500" }], "headline-lg-mobile": ["1.75rem", { "lineHeight": "2.25rem", "letterSpacing": "-0.015em", "fontWeight": "600" }], "label-md": ["0.875rem", { "lineHeight": "1.25rem", "letterSpacing": "0.01em", "fontWeight": "500" }] } } } };</script><style>
+    body {
+      min-height: max(884px, 100dvh);
+    }
+  </style>
+  </head><body class="bg-surface text-on-surface font-body-md text-body-md flex flex-col min-h-screen selection:bg-primary-container selection:text-on-primary-container"><header class="fixed top-0 inset-x-0 z-50 bg-surface/80 backdrop-blur-xl pt-safe shadow-[0_1px_8px_rgba(0,0,0,0.04)]"><div class="h-20 px-margin-mobile flex items-center justify-between gap-space-sm"><div class="flex items-center gap-space-sm min-w-0 flex-1"><button aria-label="Exit to Portal" class="min-h-[44px] min-w-[44px] flex items-center gap-space-xs px-space-xs text-on-surface-variant hover:text-on-surface transition-colors" onclick="history.back()"><span class="material-symbols-outlined text-primary text-[20px]">arrow_back</span><span class="font-label-md text-label-md hidden sm:inline whitespace-nowrap">Exit to Portal</span></button><div class="flex flex-col min-w-0 justify-center"><h1 class="font-headline-sm text-headline-sm text-on-surface truncate tracking-tight">Quiz Builder & Authoring Studio</h1><div class="flex items-center gap-space-xs text-tertiary font-code-sm text-code-sm"><span class="w-1.5 h-1.5 rounded-full bg-tertiary animate-pulse"></span><span class="text-on-surface-variant">Auto-saved 2m ago</span></div></div></div><div class="flex items-center gap-space-sm flex-shrink-0"><div class="w-8 h-8 rounded-full bg-primary flex items-center justify-center"><span class="material-symbols-outlined text-on-primary text-[18px]">person</span></div></div></div></header><main class="flex-1 flex flex-col relative w-full pt-20 pb-24 px-margin-mobile bg-surface"><div class="flex flex-col w-full gap-space-lg">
+<!-- TOP CONTEXT & ASSESSMENT HEADER -->
+<section class="flex flex-col gap-space-sm bg-surface-container-low p-space-md rounded-xl shadow-lg relative overflow-hidden">
+<div class="absolute -right-12 -top-12 w-48 h-48 bg-primary/10 rounded-full blur-3xl pointer-events-none"></div>
+<div class="flex items-center justify-between flex-wrap gap-space-xs">
+<div class="inline-flex items-center gap-space-xs px-2.5 py-1 rounded-full bg-surface-container-high text-on-surface-variant font-code-sm text-code-sm">
+<span class="w-2 h-2 rounded-full bg-secondary animate-pulse"></span>
+<span class="tracking-wider uppercase">Assessment Authoring</span>
+<span class="text-outline">/</span>
+<span class="text-secondary font-medium">PHYS-402</span>
+</div>
+<div class="flex items-center gap-space-xs px-2.5 py-1 rounded-full bg-tertiary/10 text-tertiary font-label-sm text-label-sm">
+<span class="material-symbols-outlined text-[14px]">shield</span>
+<span>Proctored AI Guard</span>
+</div>
+</div>
+<!-- Editable Title -->
+<div class="flex flex-col gap-1 mt-1">
+<label class="font-label-sm text-label-sm text-on-surface-variant" for="quiz-title">Quiz Title</label>
+<input class="w-full bg-surface-container-lowest text-on-surface font-headline-sm text-headline-sm px-3.5 py-2.5 rounded-lg focus:outline-none focus:ring-2 focus:ring-primary transition-all placeholder:text-outline" id="quiz-title" type="text" value="Wave Mechanics & Harmonic Oscillations - Midterm"/>
+</div>
+<!-- Metadata Badges -->
+<div class="flex flex-wrap items-center gap-space-xs pt-1">
+<span class="inline-flex items-center gap-1 px-2.5 py-1 rounded-full bg-surface-container text-on-surface font-label-sm text-label-sm">
+<span class="material-symbols-outlined text-[14px] text-outline">group</span>
+        Grade 11-B & 11-A
+      </span>
+<span class="inline-flex items-center gap-1 px-2.5 py-1 rounded-full bg-surface-container text-on-surface font-label-sm text-label-sm">
+<span class="material-symbols-outlined text-[14px] text-outline">timer</span>
+        45 Mins
+      </span>
+<span class="inline-flex items-center gap-1 px-2.5 py-1 rounded-full bg-surface-container text-on-surface font-label-sm text-label-sm">
+<span class="material-symbols-outlined text-[14px] text-outline">functions</span>
+        100 Pts (24 Questions)
+      </span>
+</div>
+<!-- Mode Stepper Tabs -->
+<div class="grid grid-cols-4 gap-1 p-1 bg-surface-container-lowest rounded-lg mt-2">
+<button class="flex flex-col sm:flex-row items-center justify-center gap-1 py-2 px-1 rounded-md bg-primary-container text-on-primary-container font-label-sm text-label-sm shadow-md transition-all">
+<span class="font-semibold">1. Questions</span>
+<span class="px-1.5 py-0.2 rounded-full bg-on-primary-container/20 text-[10px]">24</span>
+</button>
+<button class="flex flex-col sm:flex-row items-center justify-center gap-1 py-2 px-1 rounded-md text-on-surface-variant hover:text-on-surface font-label-sm text-label-sm transition-all">
+<span>2. Rubric</span>
+</button>
+<button class="flex flex-col sm:flex-row items-center justify-center gap-1 py-2 px-1 rounded-md text-on-surface-variant hover:text-on-surface font-label-sm text-label-sm transition-all">
+<span>3. Rules</span>
+</button>
+<button class="flex flex-col sm:flex-row items-center justify-center gap-1 py-2 px-1 rounded-md text-on-surface-variant hover:text-on-surface font-label-sm text-label-sm transition-all">
+<span>4. Schedule</span>
+</button>
+</div>
+</section>
+<!-- QUICK ACTION TOOLBAR -->
+<section class="flex flex-col gap-space-xs">
+<div class="flex items-center justify-between">
+<span class="font-label-sm text-label-sm text-on-surface-variant tracking-wider uppercase">Authoring Studio</span>
+<span class="font-code-sm text-code-sm text-secondary">Auto-sync active</span>
+</div>
+<div class="grid grid-cols-2 gap-space-xs">
+<button class="min-h-[48px] px-space-sm rounded-lg bg-primary-container text-on-primary-container font-label-md text-label-md flex items-center justify-center gap-space-xs shadow-[0_0_15px_-2px_rgba(160,120,255,0.4)] hover:brightness-110 active:scale-98 transition-all">
+<span class="material-symbols-outlined text-[20px]">add_circle</span>
+<span>Add Question</span>
+</button>
+<button class="min-h-[48px] px-space-sm rounded-lg bg-gradient-to-r from-secondary-container via-secondary to-secondary-fixed-dim text-on-secondary font-label-md text-label-md flex items-center justify-center gap-space-xs shadow-[0_0_15px_-2px_rgba(76,215,246,0.4)] hover:brightness-105 active:scale-98 transition-all">
+<span class="material-symbols-outlined text-[18px]">auto_awesome</span>
+<span>AI Stem Generator</span>
+</button>
+<button class="min-h-[44px] px-space-sm rounded-lg bg-surface-container-high text-on-surface font-label-sm text-label-sm flex items-center justify-center gap-space-xs hover:bg-surface-container-highest transition-colors">
+<span class="material-symbols-outlined text-[18px] text-on-surface-variant">source</span>
+<span>Item Bank (84)</span>
+</button>
+<button class="min-h-[44px] px-space-sm rounded-lg bg-surface-container-high text-on-surface font-label-sm text-label-sm flex items-center justify-center gap-space-xs hover:bg-surface-container-highest transition-colors">
+<span class="material-symbols-outlined text-[18px] text-on-surface-variant">shuffle</span>
+<span>Shuffle Pool</span>
+</button>
+</div>
+</section>
+<!-- QUESTION NAVIGATION STRIP -->
+<section class="flex flex-col gap-space-xs">
+<div class="flex items-center justify-between">
+<div class="flex items-center gap-1.5">
+<span class="material-symbols-outlined text-primary text-[18px]">format_list_numbered</span>
+<span class="font-label-md text-label-md text-on-surface">Question Navigation</span>
+</div>
+<span class="font-code-sm text-code-sm text-on-surface-variant">3 of 24 selected</span>
+</div>
+<div class="flex items-center gap-2 overflow-x-auto pb-1 pt-1 no-scrollbar">
+<!-- Q1 -->
+<button class="flex-shrink-0 flex items-center gap-2 px-3 py-2 rounded-lg bg-surface-container-low text-on-surface-variant hover:text-on-surface hover:bg-surface-container transition-all">
+<span class="w-5 h-5 rounded-full bg-surface-container-highest text-[11px] font-bold flex items-center justify-center text-on-surface">1</span>
+<div class="flex flex-col text-left">
+<span class="font-label-sm text-label-sm">MCQ</span>
+<span class="font-code-sm text-[10px] text-outline">4 pts</span>
+</div>
+</button>
+<!-- Q2 -->
+<button class="flex-shrink-0 flex items-center gap-2 px-3 py-2 rounded-lg bg-surface-container-low text-on-surface-variant hover:text-on-surface hover:bg-surface-container transition-all">
+<span class="w-5 h-5 rounded-full bg-surface-container-highest text-[11px] font-bold flex items-center justify-center text-on-surface">2</span>
+<div class="flex flex-col text-left">
+<span class="font-label-sm text-label-sm">MCQ</span>
+<span class="font-code-sm text-[10px] text-outline">4 pts</span>
+</div>
+</button>
+<!-- Q3 (Active) -->
+<button class="flex-shrink-0 flex items-center gap-2 px-3.5 py-2 rounded-lg bg-surface-container-highest text-on-surface shadow-[0_0_18px_-3px_rgba(160,120,255,0.5)] bg-gradient-to-r from-surface-container-highest via-surface-bright to-surface-container-highest transition-all relative">
+<span class="w-5 h-5 rounded-full bg-primary text-on-primary text-[11px] font-bold flex items-center justify-center">3</span>
+<div class="flex flex-col text-left">
+<div class="flex items-center gap-1">
+<span class="font-label-sm text-label-sm font-semibold text-primary-fixed">MCQ Active</span>
+<span class="w-1.5 h-1.5 rounded-full bg-secondary animate-ping"></span>
+</div>
+<span class="font-code-sm text-[10px] text-secondary">5 pts • Moderate</span>
+</div>
+</button>
+<!-- Q4 -->
+<button class="flex-shrink-0 flex items-center gap-2 px-3 py-2 rounded-lg bg-surface-container-low text-on-surface-variant hover:text-on-surface hover:bg-surface-container transition-all">
+<span class="w-5 h-5 rounded-full bg-surface-container-highest text-[11px] font-bold flex items-center justify-center text-on-surface">4</span>
+<div class="flex flex-col text-left">
+<span class="font-label-sm text-label-sm">Numerical</span>
+<span class="font-code-sm text-[10px] text-outline">6 pts</span>
+</div>
+</button>
+<!-- Q5 -->
+<button class="flex-shrink-0 flex items-center gap-2 px-3 py-2 rounded-lg bg-surface-container-low text-on-surface-variant hover:text-on-surface hover:bg-surface-container transition-all">
+<span class="w-5 h-5 rounded-full bg-surface-container-highest text-[11px] font-bold flex items-center justify-center text-on-surface">5</span>
+<div class="flex flex-col text-left">
+<span class="font-label-sm text-label-sm">Short Ans</span>
+<span class="font-code-sm text-[10px] text-outline">8 pts</span>
+</div>
+</button>
+<!-- Add New -->
+<button class="flex-shrink-0 flex items-center gap-1.5 px-3 py-2 rounded-lg bg-surface-container-lowest text-primary hover:bg-surface-container-low transition-all">
+<span class="material-symbols-outlined text-[16px]">add</span>
+<span class="font-label-sm text-label-sm">New</span>
+</button>
+</div>
+</section>
+<!-- ACTIVE QUESTION EDITOR CARD (Q3) -->
+<section class="flex flex-col gap-space-md bg-surface-container-low p-space-md rounded-xl shadow-xl relative">
+<!-- Header Details -->
+<div class="flex flex-wrap items-center justify-between gap-space-xs pb-1">
+<div class="flex items-center gap-2">
+<span class="px-2 py-0.5 rounded bg-primary-container text-on-primary-container font-code-sm text-code-sm font-semibold">Q3</span>
+<span class="font-headline-sm text-headline-sm text-on-surface">Multiple Choice</span>
+</div>
+<div class="flex items-center gap-space-xs">
+<span class="px-2 py-1 rounded-full bg-secondary-container/20 text-secondary font-label-sm text-label-sm flex items-center gap-1">
+<span class="material-symbols-outlined text-[14px]">psychology</span>
+          Tier 2: Conceptual
+        </span>
+<div class="flex items-center gap-1 bg-surface-container-highest px-2 py-1 rounded-lg">
+<label class="font-label-sm text-label-sm text-on-surface-variant" for="q-points">Pts:</label>
+<input class="w-8 text-center bg-transparent font-code-sm text-code-sm text-primary font-bold focus:outline-none" id="q-points" type="number" value="5"/>
+</div>
+</div>
+</div>
+<!-- Type Selection Carousel Pills -->
+<div class="flex items-center gap-1.5 overflow-x-auto pb-1 no-scrollbar">
+<button class="flex-shrink-0 px-3 py-1.5 rounded-full bg-primary text-on-primary font-label-sm text-label-sm shadow-sm flex items-center gap-1">
+<span class="material-symbols-outlined text-[14px]" style="font-variation-settings: 'FILL' 1;">radio_button_checked</span>
+        Multiple Choice
+      </button>
+<button class="flex-shrink-0 px-3 py-1.5 rounded-full bg-surface-container text-on-surface-variant font-label-sm text-label-sm hover:text-on-surface flex items-center gap-1">
+<span class="material-symbols-outlined text-[14px]">check_box</span>
+        Multi-Select
+      </button>
+<button class="flex-shrink-0 px-3 py-1.5 rounded-full bg-surface-container text-on-surface-variant font-label-sm text-label-sm hover:text-on-surface flex items-center gap-1">
+<span class="material-symbols-outlined text-[14px]">pin</span>
+        Numerical
+      </button>
+<button class="flex-shrink-0 px-3 py-1.5 rounded-full bg-surface-container text-on-surface-variant font-label-sm text-label-sm hover:text-on-surface flex items-center gap-1">
+<span class="material-symbols-outlined text-[14px]">notes</span>
+        Short Answer
+      </button>
+<button class="flex-shrink-0 px-3 py-1.5 rounded-full bg-surface-container text-on-surface-variant font-label-sm text-label-sm hover:text-on-surface flex items-center gap-1">
+<span class="material-symbols-outlined text-[14px]">code</span>
+        LaTeX
+      </button>
+</div>
+<!-- Question Prompt Editor -->
+<div class="flex flex-col gap-1.5">
+<div class="flex items-center justify-between">
+<label class="font-label-sm text-label-sm text-on-surface-variant" for="prompt-area">Question Stem & Variables</label>
+<button class="flex items-center gap-1 text-secondary font-label-sm text-label-sm hover:underline">
+<span class="material-symbols-outlined text-[14px]">auto_fix_high</span>
+<span>Refine with AI</span>
+</button>
+</div>
+<div class="bg-surface-container-lowest rounded-lg overflow-hidden focus-within:ring-2 focus-within:ring-primary transition-all">
+<!-- Rich Text Formatting Bar -->
+<div class="flex items-center justify-between px-2.5 py-1.5 bg-surface-container-high/60 gap-1 overflow-x-auto no-scrollbar">
+<div class="flex items-center gap-1">
+<button class="w-7 h-7 flex items-center justify-center rounded hover:bg-surface-container-highest text-on-surface-variant hover:text-on-surface transition-colors" title="Bold">
+<span class="material-symbols-outlined text-[16px]">format_bold</span>
+</button>
+<button class="w-7 h-7 flex items-center justify-center rounded hover:bg-surface-container-highest text-on-surface-variant hover:text-on-surface transition-colors" title="Italic">
+<span class="material-symbols-outlined text-[16px]">format_italic</span>
+</button>
+<button class="w-7 h-7 flex items-center justify-center rounded hover:bg-surface-container-highest text-on-surface-variant hover:text-on-surface transition-colors" title="Code">
+<span class="material-symbols-outlined text-[16px]">code</span>
+</button>
+<button class="px-2 h-7 flex items-center justify-center rounded bg-primary/20 text-primary-fixed font-code-sm text-xs hover:bg-primary/30 transition-colors" title="LaTeX Equation">
+<span>f(x)</span>
+</button>
+<button class="w-7 h-7 flex items-center justify-center rounded hover:bg-surface-container-highest text-on-surface-variant hover:text-on-surface transition-colors" title="Attach Media">
+<span class="material-symbols-outlined text-[16px]">image</span>
+</button>
+</div>
+<div class="text-[11px] font-code-sm text-outline">
+            LaTeX Enabled
+          </div>
+</div>
+<textarea class="w-full bg-transparent p-3 text-on-surface font-body-sm text-body-sm focus:outline-none resize-none leading-relaxed" id="prompt-area" rows="4">A transverse sinusoidal wave travels along a taut string with linear mass density μ = 0.045 kg/m and tension T = 180 N. If the frequency f = 25 Hz, determine the wavelength λ and the phase velocity v.</textarea>
+</div>
+</div>
+<!-- LaTeX Formula Preview Card -->
+<div class="p-space-sm bg-surface-container rounded-lg flex flex-col gap-1.5">
+<div class="flex items-center justify-between">
+<span class="font-label-sm text-label-sm text-secondary flex items-center gap-1">
+<span class="material-symbols-outlined text-[14px]">calculate</span>
+          Interactive Equation Output
+        </span>
+<span class="font-code-sm text-[11px] text-tertiary">Formula Sheet Eq. 4.2</span>
+</div>
+<div class="p-2.5 rounded bg-surface-container-lowest font-code-sm text-code-sm text-on-surface flex items-center justify-center overflow-x-auto text-center tracking-wide">
+        v = √( T / μ ) = √( 180 / 0.045 ) = 63.25 m/s
+      </div>
+</div>
+<!-- Media Attachment -->
+<div class="flex items-center justify-between p-2.5 rounded-lg bg-surface-container gap-space-sm">
+<div class="flex items-center gap-2.5 min-w-0">
+<div class="w-12 h-12 rounded bg-surface-container-highest flex-shrink-0 overflow-hidden relative">
+<img class="w-full h-full object-cover" data-alt="Technical blueprint diagram showing sinusoidal wave mechanics on an obsidian dark grid background with vibrant neon violet wavelength nodes and cyan frequency indicators." src="https://lh3.googleusercontent.com/aida-public/AB6AXuD9sUIxeATCP_AGmKAd9ME0KMHf410gN9NzttBS7eNqGSGzv4qCjCUJifg7_YMb2IHfqJq_cg7x7J_CGamvM2SrPXGNl2Ubu1vAattiPrvqHlh8PSyiT_epEIWrAl8LKFmYjR0L-A7ylJTZvMvYEaTnWoHjoi4gR4Yv_7g88Np8uEsC__3P07klB3LoH3V5vkkUHwd8W7EF2-VKKZCRT_UEO-I_oKEARFxzxzDJNgDLy60EyMVhw0Bm"/>
+</div>
+<div class="flex flex-col min-w-0">
+<span class="font-label-sm text-label-sm text-on-surface truncate">wave_reflection_boundary.png</span>
+<span class="font-code-sm text-[11px] text-outline">124 KB • Diagram attached</span>
+</div>
+</div>
+<div class="flex items-center gap-1 flex-shrink-0">
+<button class="px-2.5 py-1.5 rounded bg-surface-container-high text-on-surface-variant hover:text-on-surface font-label-sm text-label-sm transition-colors">
+          Preview
+        </button>
+<button class="px-2.5 py-1.5 rounded bg-surface-container-high text-primary font-label-sm text-label-sm transition-colors">
+          Replace
+        </button>
+</div>
+</div>
+<!-- ANSWER OPTIONS & MATRIX -->
+<div class="flex flex-col gap-space-sm mt-1">
+<div class="flex items-center justify-between">
+<div class="flex flex-col">
+<span class="font-label-md text-label-md text-on-surface font-semibold">Answer Choices & Distractors</span>
+<span class="font-code-sm text-[11px] text-on-surface-variant">Tap radio to designate correct key</span>
+</div>
+<label class="flex items-center gap-1.5 cursor-pointer">
+<span class="font-label-sm text-label-sm text-on-surface-variant">Shuffle</span>
+<div class="w-8 h-4 rounded-full bg-secondary-container relative flex items-center px-0.5">
+<div class="w-3 h-3 rounded-full bg-on-secondary ml-auto shadow-sm"></div>
+</div>
+</label>
+</div>
+<!-- Option A (Distractor) -->
+<div class="flex flex-col gap-1 p-3 rounded-lg bg-surface-container hover:bg-surface-container-high transition-colors">
+<div class="flex items-center gap-2.5">
+<div class="w-5 h-5 rounded-full bg-surface-container-highest flex items-center justify-center flex-shrink-0">
+<span class="text-xs font-bold text-outline">A</span>
+</div>
+<input class="flex-1 bg-transparent text-on-surface font-body-sm text-body-sm focus:outline-none" type="text" value="λ = 1.82 m, v = 45.0 m/s"/>
+<button class="text-outline hover:text-error transition-colors">
+<span class="material-symbols-outlined text-[18px]">delete</span>
+</button>
+</div>
+<div class="flex items-center gap-1 pl-7 text-[11px] font-code-sm text-on-surface-variant">
+<span class="material-symbols-outlined text-[12px] text-outline">info</span>
+<span>Common slip: Tension inverted calculation error</span>
+</div>
+</div>
+<!-- Option B (Correct Key) -->
+<div class="flex flex-col gap-2 p-3 rounded-lg bg-surface-container-high relative overflow-hidden shadow-[0_0_15px_-3px_rgba(78,222,163,0.3)]">
+<div class="absolute left-0 top-0 bottom-0 w-1 bg-tertiary"></div>
+<div class="flex items-center justify-between">
+<div class="flex items-center gap-2.5 flex-1 min-w-0">
+<div class="w-5 h-5 rounded-full bg-tertiary text-on-tertiary flex items-center justify-center flex-shrink-0 font-bold text-xs">
+              ✓
+            </div>
+<input class="flex-1 bg-transparent text-on-surface font-body-sm text-body-sm font-semibold focus:outline-none" type="text" value="λ = 2.53 m, v = 63.25 m/s"/>
+</div>
+<span class="px-2 py-0.5 rounded-full bg-tertiary/20 text-tertiary font-label-sm text-label-sm font-semibold flex items-center gap-1">
+<span class="material-symbols-outlined text-[12px]">check</span>
+            Correct Key
+          </span>
+</div>
+<!-- Rationale sub-card -->
+<div class="ml-7 p-2 rounded bg-surface-container-lowest flex flex-col gap-1">
+<div class="flex items-center gap-1 text-[11px] font-label-sm text-tertiary">
+<span class="material-symbols-outlined text-[12px]">psychology_alt</span>
+<span>AI Verified Solution Rationale</span>
+</div>
+<p class="font-body-sm text-[12px] text-on-surface-variant leading-relaxed">
+            Phase velocity <span class="font-code-sm text-primary">v = √(T/μ)</span> gives 63.25 m/s. Wavelength <span class="font-code-sm text-primary">λ = v/f = 63.25 / 25 = 2.53 m</span>.
+          </p>
+</div>
+</div>
+<!-- Option C (Distractor) -->
+<div class="flex flex-col gap-1 p-3 rounded-lg bg-surface-container hover:bg-surface-container-high transition-colors">
+<div class="flex items-center gap-2.5">
+<div class="w-5 h-5 rounded-full bg-surface-container-highest flex items-center justify-center flex-shrink-0">
+<span class="text-xs font-bold text-outline">C</span>
+</div>
+<input class="flex-1 bg-transparent text-on-surface font-body-sm text-body-sm focus:outline-none" type="text" value="λ = 3.10 m, v = 77.5 m/s"/>
+<button class="text-outline hover:text-error transition-colors">
+<span class="material-symbols-outlined text-[18px]">delete</span>
+</button>
+</div>
+</div>
+<!-- Option D (Distractor) -->
+<div class="flex flex-col gap-1 p-3 rounded-lg bg-surface-container hover:bg-surface-container-high transition-colors">
+<div class="flex items-center gap-2.5">
+<div class="w-5 h-5 rounded-full bg-surface-container-highest flex items-center justify-center flex-shrink-0">
+<span class="text-xs font-bold text-outline">D</span>
+</div>
+<input class="flex-1 bg-transparent text-on-surface font-body-sm text-body-sm focus:outline-none" type="text" value="λ = 0.98 m, v = 24.5 m/s"/>
+<button class="text-outline hover:text-error transition-colors">
+<span class="material-symbols-outlined text-[18px]">delete</span>
+</button>
+</div>
+</div>
+<!-- Add Choice Button -->
+<button class="w-full py-2.5 rounded-lg bg-surface-container hover:bg-surface-container-highest text-primary font-label-sm text-label-sm flex items-center justify-center gap-1.5 transition-colors">
+<span class="material-symbols-outlined text-[18px]">add_circle_outline</span>
+<span>Add Answer Option</span>
+</button>
+</div>
+</section>
+<!-- AI CO-PILOT ASSISTANT CARD -->
+<section class="p-space-md rounded-xl bg-surface-container-low shadow-lg relative overflow-hidden flex flex-col gap-space-xs">
+<div class="absolute -right-8 -bottom-8 w-36 h-36 bg-secondary/10 rounded-full blur-2xl pointer-events-none"></div>
+<div class="flex items-center justify-between">
+<div class="flex items-center gap-1.5">
+<span class="material-symbols-outlined text-secondary text-[20px]">magic_button</span>
+<span class="font-headline-sm text-headline-sm text-on-surface">AI Co-Pilot Insight</span>
+</div>
+<span class="px-2 py-0.5 rounded-full bg-secondary-container/20 text-secondary font-code-sm text-[10px] uppercase tracking-wider">Historical Analytics</span>
+</div>
+<p class="font-body-sm text-body-sm text-on-surface-variant leading-relaxed">
+      In Period 3 testing, <span class="text-error font-medium">34% of students</span> confused linear density with volumetric density. Would you like to introduce an authentic distractor?
+    </p>
+<div class="p-2.5 rounded-lg bg-surface-container-lowest flex items-center justify-between gap-space-xs">
+<div class="flex flex-col min-w-0">
+<span class="font-label-sm text-label-sm text-primary-fixed truncate">Option E: λ = 1.12 m, v = 28.0 m/s</span>
+<span class="font-code-sm text-[11px] text-outline">Catches μ = m/V misconceptions</span>
+</div>
+<div class="flex items-center gap-1 flex-shrink-0">
+<button class="px-2.5 py-1.5 rounded-md bg-secondary text-on-secondary font-label-sm text-label-sm font-semibold hover:opacity-90 transition-opacity">
+          Add Option
+        </button>
+<button class="px-2 py-1.5 rounded-md bg-surface-container text-on-surface-variant font-label-sm text-label-sm hover:text-on-surface transition-colors">
+          Dismiss
+        </button>
+</div>
+</div>
+</section>
+<!-- EXAM PARAMETERS & SECURITY DRAWER -->
+<section class="flex flex-col gap-space-xs bg-surface-container-low p-space-md rounded-xl">
+<div class="flex items-center justify-between">
+<div class="flex items-center gap-2">
+<span class="material-symbols-outlined text-primary text-[20px]">admin_panel_settings</span>
+<span class="font-headline-sm text-headline-sm text-on-surface">Proctoring Rules</span>
+</div>
+<span class="material-symbols-outlined text-outline text-[20px]">expand_more</span>
+</div>
+<div class="grid grid-cols-1 gap-2 pt-1">
+<div class="flex items-center justify-between p-2.5 rounded-lg bg-surface-container">
+<div class="flex items-center gap-2">
+<span class="material-symbols-outlined text-tertiary text-[18px]">calculate</span>
+<div class="flex flex-col">
+<span class="font-label-sm text-label-sm text-on-surface">Calculator Policy</span>
+<span class="font-code-sm text-[11px] text-outline">Scientific 10-digit virtual</span>
+</div>
+</div>
+<span class="px-2 py-0.5 rounded bg-tertiary/20 text-tertiary font-label-sm text-label-sm">Active</span>
+</div>
+<div class="flex items-center justify-between p-2.5 rounded-lg bg-surface-container">
+<div class="flex items-center gap-2">
+<span class="material-symbols-outlined text-secondary text-[18px]">lock</span>
+<div class="flex flex-col">
+<span class="font-label-sm text-label-sm text-on-surface">Lockdown Fullscreen</span>
+<span class="font-code-sm text-[11px] text-outline">Kiosk mode enforcement</span>
+</div>
+</div>
+<span class="px-2 py-0.5 rounded bg-secondary/20 text-secondary font-label-sm text-label-sm">Enforced</span>
+</div>
+<div class="flex items-center justify-between p-2.5 rounded-lg bg-surface-container">
+<div class="flex items-center gap-2">
+<span class="material-symbols-outlined text-primary text-[18px]">shuffle</span>
+<div class="flex flex-col">
+<span class="font-label-sm text-label-sm text-on-surface">Dynamic Question Pool</span>
+<span class="font-code-sm text-[11px] text-outline">Draw 20 of 24 randomized</span>
+</div>
+</div>
+<span class="px-2 py-0.5 rounded bg-primary/20 text-primary-fixed font-label-sm text-label-sm">Enabled</span>
+</div>
+</div>
+</section>
+<!-- BOTTOM FLOATING ACTION BAR -->
+<div class="p-space-sm rounded-xl bg-surface-container-high/90 backdrop-blur-md shadow-2xl flex items-center justify-between gap-space-sm sticky bottom-2 z-20">
+<div class="flex items-center gap-2 min-w-0">
+<span class="w-2.5 h-2.5 rounded-full bg-tertiary animate-pulse"></span>
+<div class="flex flex-col min-w-0">
+<span class="font-label-sm text-label-sm text-on-surface font-semibold truncate">Q3 / 24 Saved</span>
+<span class="font-code-sm text-[10px] text-outline">All changes synced</span>
+</div>
+</div>
+<div class="flex items-center gap-space-xs flex-shrink-0">
+<button class="min-h-[44px] px-3 rounded-lg bg-surface-container-highest text-on-surface hover:text-primary flex items-center gap-1 font-label-sm text-label-sm transition-colors">
+<span class="material-symbols-outlined text-[16px]">visibility</span>
+<span class="hidden sm:inline">Preview</span>
+</button>
+<button class="min-h-[44px] px-4 rounded-lg bg-gradient-to-r from-primary-container via-primary to-inverse-primary text-on-primary flex items-center gap-1 font-label-sm text-label-sm font-semibold shadow-[0_0_15px_-2px_rgba(160,120,255,0.45)] hover:opacity-95 active:scale-98 transition-all">
+<span>Save & Next</span>
+<span class="material-symbols-outlined text-[16px]">arrow_forward</span>
+</button>
+</div>
+</div>
+</div></main><aside class="fixed bottom-0 inset-x-0 z-50 pb-safe bg-surface/85 backdrop-blur-xl shadow-[0_-2px_12px_rgba(0,0,0,0.25)]"><div class="h-20 px-margin-mobile flex items-center justify-between gap-space-md"><div class="flex items-center gap-space-sm"><button class="min-h-[48px] px-space-md rounded-lg bg-surface-container hover:bg-surface-container-high text-on-surface flex items-center gap-space-xs font-label-md text-label-md transition-colors"><span class="material-symbols-outlined text-[18px]">visibility</span><span>Preview</span></button></div><div class="flex items-center gap-space-sm"><button class="min-h-[48px] px-space-md rounded-lg bg-surface-container-high hover:bg-surface-container-highest text-on-surface-variant hover:text-on-surface flex items-center gap-space-xs font-label-md text-label-md transition-colors"><span class="material-symbols-outlined text-[18px]">save</span><span>Save Draft</span></button><button class="min-h-[48px] px-space-lg rounded-lg bg-gradient-to-r from-primary-container to-inverse-primary text-on-primary flex items-center gap-space-xs font-label-md text-label-md shadow-[0_0_20px_-3px_rgba(139,92,246,0.45)] hover:opacity-95 transition-opacity"><span class="material-symbols-outlined text-[18px]">rocket_launch</span><span>Review & Publish</span></button></div></div></aside></body></html>

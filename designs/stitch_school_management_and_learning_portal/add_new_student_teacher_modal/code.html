@@ -1,0 +1,347 @@
+<!DOCTYPE html>
+
+<html class="dark" lang="en"><head><meta charset="utf-8"/><meta content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no, viewport-fit=cover" name="viewport"/><meta content="mobile_stack" name="shell-type"/><link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@20..48,100..700,0..1,-50..200" rel="stylesheet"/><link href="https://fonts.googleapis.com" rel="preconnect"/><link crossorigin="" href="https://fonts.gstatic.com" rel="preconnect"/><link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600&amp;family=JetBrains+Mono:wght@500&amp;family=Plus+Jakarta+Sans:wght@600;700&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/><script src="https://cdn.tailwindcss.com"></script><script id="tailwind-config">tailwind.config = { darkMode: "class", theme: { extend: { "colors": { "outline-variant": "#494454", "outline": "#958ea0", "surface-container-low": "#181c24", "secondary-fixed": "#acedff", "background": "#0f131c", "primary": "#d0bcff", "on-tertiary-fixed-variant": "#005236", "tertiary-fixed-dim": "#4edea3", "surface": "#0f131c", "surface-container-highest": "#31353e", "tertiary-container": "#00a572", "secondary": "#4cd7f6", "on-tertiary-container": "#00311f", "on-surface": "#dfe2ee", "surface-variant": "#31353e", "secondary-container": "#03b5d3", "on-secondary-fixed-variant": "#004e5c", "error-container": "#93000a", "on-error-container": "#ffdad6", "on-secondary": "#003640", "tertiary": "#4edea3", "surface-container-high": "#262a33", "surface-dim": "#0f131c", "primary-fixed-dim": "#d0bcff", "on-tertiary-fixed": "#002113", "on-secondary-fixed": "#001f26", "on-primary-fixed": "#23005c", "tertiary-fixed": "#6ffbbe", "inverse-surface": "#dfe2ee", "on-primary-fixed-variant": "#5516be", "on-background": "#dfe2ee", "on-tertiary": "#003824", "error": "#ffb4ab", "surface-bright": "#353942", "on-surface-variant": "#cbc3d7", "inverse-primary": "#6d3bd7", "primary-container": "#a078ff", "surface-container-lowest": "#0a0e16", "surface-container": "#1c2028", "secondary-fixed-dim": "#4cd7f6", "on-secondary-container": "#00424e", "on-primary-container": "#340080", "surface-tint": "#d0bcff", "on-error": "#690005", "on-primary": "#3c0091", "primary-fixed": "#e9ddff", "inverse-on-surface": "#2c3039" }, "borderRadius": { "DEFAULT": "0.25rem", "lg": "0.5rem", "xl": "0.75rem", "full": "9999px" }, "spacing": { "space-xl": "2.5rem", "space-xs": "0.25rem", "margin": "2rem", "space-sm": "0.5rem", "gutter-mobile": "1rem", "gutter": "1.5rem", "margin-mobile": "1rem", "space-md": "1rem", "space-lg": "1.5rem" }, "fontFamily": { "headline-md": ["Plus Jakarta Sans"], "headline-sm": ["Plus Jakarta Sans"], "body-sm": ["Inter"], "headline-display": ["Plus Jakarta Sans"], "headline-display-mobile": ["Plus Jakarta Sans"], "code-sm": ["JetBrains Mono"], "body-lg": ["Inter"], "headline-lg-mobile": ["Plus Jakarta Sans"], "label-md": ["Inter"], "body-md": ["Inter"], "label-sm": ["Inter"], "headline-lg": ["Plus Jakarta Sans"] }, "fontSize": { "headline-md": ["1.75rem", { "lineHeight": "2.25rem", "letterSpacing": "-0.02em", "fontWeight": "600" }], "headline-sm": ["1.25rem", { "lineHeight": "1.75rem", "letterSpacing": "-0.01em", "fontWeight": "600" }], "body-sm": ["0.875rem", { "lineHeight": "1.25rem", "letterSpacing": "0em", "fontWeight": "400" }], "headline-display": ["3.5rem", { "lineHeight": "4.25rem", "letterSpacing": "-0.03em", "fontWeight": "700" }], "headline-display-mobile": ["2.25rem", { "lineHeight": "2.75rem", "letterSpacing": "-0.02em", "fontWeight": "700" }], "code-sm": ["0.8125rem", { "lineHeight": "1.25rem", "letterSpacing": "0em", "fontWeight": "500" }], "body-lg": ["1.125rem", { "lineHeight": "1.75rem", "letterSpacing": "-0.01em", "fontWeight": "400" }], "headline-lg-mobile": ["1.75rem", { "lineHeight": "2.25rem", "letterSpacing": "-0.015em", "fontWeight": "600" }], "label-md": ["0.875rem", { "lineHeight": "1.25rem", "letterSpacing": "0.01em", "fontWeight": "500" }], "body-md": ["1rem", { "lineHeight": "1.5rem", "letterSpacing": "0em", "fontWeight": "400" }], "label-sm": ["0.75rem", { "lineHeight": "1rem", "letterSpacing": "0.04em", "fontWeight": "600" }], "headline-lg": ["2.5rem", { "lineHeight": "3rem", "letterSpacing": "-0.025em", "fontWeight": "600" }] } } } };</script><style>@layer base{html,body{width:100vw;min-height:100vh;margin:0;padding:0;background-color:#0f131c;}body{overscroll-behavior-y:none;}.pb-safe{padding-bottom:env(safe-area-inset-bottom,0px);}.pt-safe{padding-top:env(safe-area-inset-top,0px);}main>:first-child{margin-top:0!important;}main>:last-child{margin-bottom:0!important;}}::-webkit-scrollbar{display:none;}</style><style>
+    body {
+      min-height: max(884px, 100dvh);
+    }
+  </style>
+  </head><body class="bg-surface text-on-surface font-body-md text-body-md min-h-screen flex flex-col selection:bg-primary-container selection:text-on-primary-container"><header class="fixed top-0 inset-x-0 z-50 bg-surface/80 backdrop-blur-xl pt-safe shadow-[0_1px_8px_rgba(0,0,0,0.04)]"><div class="flex flex-col items-center justify-center pt-space-xs"><div class="w-10 h-1 rounded-full bg-outline-variant/60"></div></div><div class="h-14 px-gutter-mobile flex items-center justify-between"><div class="flex items-center gap-space-sm"><button aria-label="Dismiss sheet" class="w-11 h-11 flex items-center justify-center rounded-full text-on-surface-variant hover:text-on-surface transition-colors" onclick="window.history.back()" type="button"><span class="material-symbols-outlined text-[24px]">close</span></button><h1 class="font-headline-sm text-headline-sm text-on-surface tracking-tight truncate max-w-[200px]">Add User</h1></div><div class="flex items-center gap-space-sm"><div class="w-8 h-8 rounded-full bg-primary flex items-center justify-center"><span class="material-symbols-outlined text-on-primary text-[18px]">person</span></div></div></div></header><main class="flex-1 flex flex-col relative w-full pt-14 pb-safe bg-surface"><div class="flex flex-col w-full pb-10">
+<!-- Interactive Form Sheet Container -->
+<div class="flex flex-col w-full px-gutter-mobile space-y-space-lg">
+<!-- Modal Header Details -->
+<div class="flex items-start justify-between pt-space-xs">
+<div class="flex flex-col pr-space-sm">
+<div class="inline-flex items-center gap-1.5 px-2.5 py-0.5 rounded-full bg-surface-container-high w-fit mb-1.5">
+<span class="w-1.5 h-1.5 rounded-full bg-secondary animate-pulse"></span>
+<span class="font-label-sm text-label-sm text-secondary tracking-wide uppercase">Identity Provisioning</span>
+</div>
+<h2 class="font-headline-md text-headline-md text-on-surface">Add New User</h2>
+<p class="font-body-sm text-body-sm text-on-surface-variant mt-0.5">Enroll a student or invite a faculty member to SchoolCore.</p>
+</div>
+<div class="flex items-center justify-center w-8 h-8 rounded-full bg-surface-container-high text-on-surface-variant">
+<span class="material-symbols-outlined text-[20px]">badge</span>
+</div>
+</div>
+<!-- Step 1: Role Archetype Selector -->
+<section class="flex flex-col space-y-space-sm">
+<div class="flex items-center justify-between">
+<label class="font-label-md text-label-md text-on-surface flex items-center gap-1.5">
+<span class="w-5 h-5 rounded-full bg-primary-container/30 text-primary flex items-center justify-center font-code-sm text-code-sm">1</span>
+          Role Archetype
+        </label>
+<span class="font-label-sm text-label-sm text-tertiary">Access Level Matrix</span>
+</div>
+<div class="grid grid-cols-1 gap-space-sm">
+<!-- Student Option (Active) -->
+<button class="relative flex items-start gap-space-md p-space-md rounded-xl bg-surface-container-low text-left transition-all duration-200 shadow-md" id="role-student-btn" onclick="selectRole('student')" type="button">
+<div class="absolute inset-0 rounded-xl bg-gradient-to-r from-primary/10 via-secondary/5 to-transparent pointer-events-none" id="role-student-glow"></div>
+<div class="w-10 h-10 rounded-lg bg-primary-container/20 flex items-center justify-center text-primary shrink-0 mt-0.5" id="role-student-indicator">
+<span class="material-symbols-outlined text-[24px]">school</span>
+</div>
+<div class="flex flex-col flex-1 min-w-0 pr-6">
+<div class="flex items-center gap-2">
+<span class="font-headline-sm text-headline-sm text-on-surface">Student</span>
+<span class="px-2 py-0.5 rounded-full bg-primary-container text-on-primary-container font-label-sm text-label-sm">Learner Tier</span>
+</div>
+<p class="font-body-sm text-body-sm text-on-surface-variant mt-1 leading-relaxed">
+              Enrolled learner with unified course dashboard, neural quiz telemetry, and interactive sandbox permissions.
+            </p>
+</div>
+<div class="absolute top-space-md right-space-md w-5 h-5 rounded-full bg-primary text-on-primary flex items-center justify-center" id="role-student-check">
+<span class="material-symbols-outlined text-[16px]">check</span>
+</div>
+</button>
+<!-- Faculty Option -->
+<button class="relative flex items-start gap-space-md p-space-md rounded-xl bg-surface-container-low text-left transition-all duration-200" id="role-faculty-btn" onclick="selectRole('faculty')" type="button">
+<div class="hidden absolute inset-0 rounded-xl bg-gradient-to-r from-secondary/10 to-transparent pointer-events-none" id="role-faculty-glow"></div>
+<div class="w-10 h-10 rounded-lg bg-surface-container-highest flex items-center justify-center text-on-surface-variant shrink-0 mt-0.5" id="role-faculty-indicator">
+<span class="material-symbols-outlined text-[24px]">local_library</span>
+</div>
+<div class="flex flex-col flex-1 min-w-0 pr-6">
+<div class="flex items-center gap-2">
+<span class="font-headline-sm text-headline-sm text-on-surface">Teacher / Faculty</span>
+<span class="px-2 py-0.5 rounded-full bg-surface-container-high text-on-surface-variant font-label-sm text-label-sm">Educator Tier</span>
+</div>
+<p class="font-body-sm text-body-sm text-on-surface-variant mt-1 leading-relaxed">
+              Educator with curriculum generation, neural rubric grading, live attendance tracking, and roster control.
+            </p>
+</div>
+<div class="hidden absolute top-space-md right-space-md w-5 h-5 rounded-full bg-secondary text-on-secondary items-center justify-center" id="role-faculty-check">
+<span class="material-symbols-outlined text-[16px]">check</span>
+</div>
+</button>
+</div>
+<!-- Additional Specialized Permissions -->
+<div class="flex items-center justify-between p-space-sm px-space-md rounded-lg bg-surface-container-high mt-1">
+<div class="flex items-center gap-2 min-w-0">
+<span class="material-symbols-outlined text-outline text-[18px]">admin_panel_settings</span>
+<span class="font-label-sm text-label-sm text-on-surface truncate">Teaching Assistant / Lab Moderator Elevated Access</span>
+</div>
+<input class="w-4 h-4 rounded bg-surface-container-highest accent-primary" id="elevated-ta" type="checkbox"/>
+</div>
+</section>
+<!-- Step 2: Personal & Identity Information -->
+<section class="flex flex-col space-y-space-md bg-surface-container-low p-space-md rounded-xl">
+<div class="flex items-center justify-between">
+<label class="font-label-md text-label-md text-on-surface flex items-center gap-1.5">
+<span class="w-5 h-5 rounded-full bg-primary-container/30 text-primary flex items-center justify-center font-code-sm text-code-sm">2</span>
+          Personal &amp; Identity
+        </label>
+<!-- System Generated ID Pill -->
+<div class="flex items-center gap-1.5 bg-surface-container-highest px-2.5 py-1 rounded-full shadow-sm">
+<span class="font-code-sm text-code-sm text-secondary" id="system-id-display">ID: #SC-9842</span>
+<button aria-label="Regenerate ID" class="text-outline hover:text-on-surface flex items-center" onclick="regenerateId()" type="button">
+<span class="material-symbols-outlined text-[16px]">cached</span>
+</button>
+</div>
+</div>
+<!-- Avatar Capture & Biometric Visual Dropzone -->
+<div class="flex items-center gap-space-md p-space-sm rounded-lg bg-surface-container">
+<div class="relative w-16 h-16 rounded-xl bg-surface-container-highest flex items-center justify-center overflow-hidden shrink-0 shadow-inner">
+<span class="material-symbols-outlined text-[36px] text-outline">account_circle</span>
+<div class="absolute bottom-0 inset-x-0 h-5 bg-surface-container-lowest/80 flex items-center justify-center">
+<span class="material-symbols-outlined text-[12px] text-primary">photo_camera</span>
+</div>
+</div>
+<div class="flex flex-col flex-1 min-w-0">
+<div class="flex gap-2">
+<button class="px-3 py-1.5 rounded-lg bg-surface-container-highest hover:bg-surface-bright text-on-surface font-label-sm text-label-sm transition-colors flex items-center gap-1 shadow-sm" type="button">
+<span class="material-symbols-outlined text-[16px]">upload_file</span>
+              Upload Photo
+            </button>
+<button class="px-2.5 py-1.5 rounded-lg bg-primary/10 hover:bg-primary/20 text-primary font-label-sm text-label-sm transition-colors flex items-center gap-1" type="button">
+<span class="material-symbols-outlined text-[16px]">auto_awesome</span>
+              AI ID Synth
+            </button>
+</div>
+<span class="font-label-sm text-label-sm text-on-surface-variant mt-1.5 truncate">Min 600x600px PNG/JPG. Standard format for campus badge.</span>
+</div>
+</div>
+<!-- Legal Name Inputs -->
+<div class="grid grid-cols-2 gap-space-sm">
+<div class="flex flex-col space-y-1">
+<label class="font-label-sm text-label-sm text-on-surface-variant" for="first-name">First Name</label>
+<input class="w-full px-3 py-2.5 rounded-lg bg-surface-container-high text-on-surface placeholder:text-outline font-body-sm text-body-sm focus:outline-none focus:bg-surface-container-highest transition-colors" id="first-name" placeholder="e.g. Maya" type="text" value="Maya"/>
+</div>
+<div class="flex flex-col space-y-1">
+<label class="font-label-sm text-label-sm text-on-surface-variant" for="last-name">Last Name</label>
+<input class="w-full px-3 py-2.5 rounded-lg bg-surface-container-high text-on-surface placeholder:text-outline font-body-sm text-body-sm focus:outline-none focus:bg-surface-container-highest transition-colors" id="last-name" placeholder="e.g. Lin" type="text" value="Lin"/>
+</div>
+</div>
+<!-- Institutional Email -->
+<div class="flex flex-col space-y-1">
+<div class="flex items-center justify-between">
+<label class="font-label-sm text-label-sm text-on-surface-variant" for="email">Institutional Email</label>
+<span class="inline-flex items-center gap-1 text-tertiary font-label-sm text-label-sm">
+<span class="material-symbols-outlined text-[14px]">verified</span>
+            Domain verified: @schoolcore.edu
+          </span>
+</div>
+<div class="relative flex items-center">
+<input class="w-full px-3 py-2.5 pl-9 rounded-lg bg-surface-container-high text-on-surface placeholder:text-outline font-body-sm text-body-sm focus:outline-none focus:bg-surface-container-highest transition-colors" id="email" type="email" value="m.lin@schoolcore.edu"/>
+<span class="material-symbols-outlined text-[18px] text-outline absolute left-3 pointer-events-none">mail</span>
+</div>
+</div>
+</section>
+<!-- Step 3: Academic & Organizational Placement -->
+<section class="flex flex-col space-y-space-md bg-surface-container-low p-space-md rounded-xl">
+<div class="flex items-center justify-between">
+<label class="font-label-md text-label-md text-on-surface flex items-center gap-1.5">
+<span class="w-5 h-5 rounded-full bg-primary-container/30 text-primary flex items-center justify-center font-code-sm text-code-sm">3</span>
+          Placement &amp; Smart Telemetry
+        </label>
+<span class="font-label-sm text-label-sm text-on-surface-variant">2024-2025 Cohort</span>
+</div>
+<!-- Dynamic Placement Options (Student context active) -->
+<div class="flex flex-col space-y-space-sm" id="student-placement-block">
+<div class="flex flex-col space-y-1">
+<label class="font-label-sm text-label-sm text-on-surface-variant">Class Cohort / Grade Level</label>
+<div class="grid grid-cols-3 gap-2">
+<button class="py-2 rounded-lg bg-surface-container-high text-on-surface-variant font-label-sm text-label-sm text-center" type="button">Grade 10</button>
+<button class="py-2 rounded-lg bg-primary-container text-on-primary-container font-label-sm text-label-sm text-center shadow-sm" type="button">Grade 11-A</button>
+<button class="py-2 rounded-lg bg-surface-container-high text-on-surface-variant font-label-sm text-label-sm text-center" type="button">Grade 12</button>
+</div>
+</div>
+<div class="flex flex-col space-y-1">
+<label class="font-label-sm text-label-sm text-on-surface-variant" for="honors-track">Curriculum Track &amp; Department</label>
+<div class="relative flex items-center">
+<select class="w-full appearance-none px-3 py-2.5 rounded-lg bg-surface-container-high text-on-surface font-body-sm text-body-sm focus:outline-none" id="honors-track">
+<option selected="">Physics &amp; STEM Honours</option>
+<option>Advanced Quantum Computing &amp; Math</option>
+<option>Biomedical Informatics Lab</option>
+<option>Humanities &amp; Cyberethics</option>
+</select>
+<span class="material-symbols-outlined text-[20px] text-outline absolute right-3 pointer-events-none">expand_more</span>
+</div>
+</div>
+<!-- Guardian Info -->
+<div class="grid grid-cols-1 gap-2 pt-1">
+<label class="font-label-sm text-label-sm text-on-surface-variant">Guardian Contact (SMS Attendance Alerts)</label>
+<div class="grid grid-cols-2 gap-space-sm">
+<input class="w-full px-3 py-2 rounded-lg bg-surface-container-high text-on-surface placeholder:text-outline font-body-sm text-body-sm focus:outline-none" placeholder="parent.lin@domain.com" type="email" value="e.lin.parent@domain.com"/>
+<input class="w-full px-3 py-2 rounded-lg bg-surface-container-high text-on-surface placeholder:text-outline font-body-sm text-body-sm focus:outline-none" placeholder="+1 (555) 019-2831" type="tel" value="+1 (555) 438-9921"/>
+</div>
+</div>
+</div>
+<!-- Smart Hardware RFID / NFC Linking -->
+<div class="flex flex-col space-y-2 p-space-sm rounded-lg bg-surface-container">
+<div class="flex items-center justify-between">
+<div class="flex items-center gap-1.5 text-on-surface font-label-sm text-label-sm">
+<span class="material-symbols-outlined text-[18px] text-secondary">contactless</span>
+            NFC / RFID Smart Badge
+          </div>
+<span class="inline-flex items-center gap-1 text-tertiary font-label-sm text-label-sm">
+<span class="w-2 h-2 rounded-full bg-tertiary"></span>
+            Scanner Online
+          </span>
+</div>
+<div class="flex items-center gap-2">
+<input class="flex-1 px-3 py-2 font-code-sm text-code-sm rounded-lg bg-surface-container-high text-secondary focus:outline-none" type="text" value="8F:4A:99:B2:D1"/>
+<button class="px-3 py-2 rounded-lg bg-surface-container-highest text-on-surface font-label-sm text-label-sm flex items-center gap-1" type="button">
+<span class="material-symbols-outlined text-[16px]">sensors</span>
+            Tap Card
+          </button>
+</div>
+</div>
+</section>
+<!-- Step 4: Security & Access Credentials Setup -->
+<section class="flex flex-col space-y-space-md bg-surface-container-low p-space-md rounded-xl">
+<div class="flex items-center justify-between">
+<label class="font-label-md text-label-md text-on-surface flex items-center gap-1.5">
+<span class="w-5 h-5 rounded-full bg-primary-container/30 text-primary flex items-center justify-center font-code-sm text-code-sm">4</span>
+          Security &amp; Credentials Setup
+        </label>
+<span class="font-label-sm text-label-sm text-outline">Zero-Trust ID</span>
+</div>
+<!-- Password Strategy Radios -->
+<div class="flex flex-col space-y-2">
+<label class="flex items-start gap-3 p-space-sm rounded-lg bg-surface-container hover:bg-surface-container-high transition-colors cursor-pointer">
+<input checked="" class="mt-1 accent-primary" name="pwd-strategy" type="radio"/>
+<div class="flex flex-col">
+<span class="font-label-md text-label-md text-on-surface">Send activation invite link via email</span>
+<span class="font-body-sm text-body-sm text-on-surface-variant">Recommended. Token expires securely in 48 hours.</span>
+</div>
+</label>
+<label class="flex items-start gap-3 p-space-sm rounded-lg bg-surface-container hover:bg-surface-container-high transition-colors cursor-pointer">
+<input class="mt-1 accent-primary" name="pwd-strategy" type="radio"/>
+<div class="flex flex-col flex-1">
+<span class="font-label-md text-label-md text-on-surface">Generate temporary master password</span>
+<div class="flex items-center gap-2 mt-2">
+<input class="w-40 px-2.5 py-1.5 font-code-sm text-code-sm rounded bg-surface-container-high text-on-surface" readonly="" type="password" value="K9#mQ!vL290z"/>
+<button class="px-2.5 py-1.5 rounded bg-surface-container-highest text-primary font-label-sm text-label-sm flex items-center gap-1" type="button">
+<span class="material-symbols-outlined text-[14px]">content_copy</span>
+                Reveal &amp; Copy
+              </button>
+</div>
+</div>
+</label>
+</div>
+<!-- 2FA & Biometric Policies -->
+<div class="flex flex-col space-y-3 pt-2">
+<!-- 2FA Toggle -->
+<div class="flex items-center justify-between p-space-sm rounded-lg bg-surface-container">
+<div class="flex items-center gap-2.5 min-w-0 pr-2">
+<div class="w-7 h-7 rounded-full bg-secondary/10 flex items-center justify-center text-secondary shrink-0">
+<span class="material-symbols-outlined text-[16px]">phonelink_lock</span>
+</div>
+<div class="flex flex-col min-w-0">
+<span class="font-label-md text-label-md text-on-surface truncate">Enforce 2FA Authenticator</span>
+<span class="font-label-sm text-label-sm text-on-surface-variant truncate">Mandatory setup on initial portal sign-in</span>
+</div>
+</div>
+<div class="relative inline-flex items-center shrink-0">
+<input checked="" class="sr-only peer" id="toggle-2fa" type="checkbox"/>
+<div class="w-11 h-6 bg-surface-container-highest rounded-full peer peer-checked:after:translate-x-full peer-checked:after:border-white after:content-[''] after:absolute after:top-0.5 after:left-[2px] after:bg-on-surface after:border-surface-container after:border after:rounded-full after:h-5 after:w-5 after:transition-all peer-checked:bg-primary-container"></div>
+</div>
+</div>
+<!-- Biometric Quiz Requirement -->
+<label class="flex items-center gap-2.5 p-space-sm rounded-lg bg-surface-container cursor-pointer">
+<input checked="" class="w-4 h-4 rounded bg-surface-container-highest accent-primary" type="checkbox"/>
+<div class="flex flex-col">
+<span class="font-label-sm text-label-sm text-on-surface">Biometric Facial Verification</span>
+<span class="font-label-sm text-label-sm text-on-surface-variant">Require facial profile enrollment before first proctored neural exam</span>
+</div>
+</label>
+</div>
+</section>
+<!-- Sticky Bottom Modal Action Controls -->
+<div class="flex flex-col space-y-space-sm pt-space-xs">
+<div class="flex items-center gap-space-sm">
+<button class="w-1/3 py-3 px-space-md rounded-xl bg-surface-container-high hover:bg-surface-bright text-on-surface font-label-md text-label-md transition-all text-center" type="button">
+          Save Draft
+        </button>
+<button class="w-2/3 py-3 px-space-md rounded-xl bg-gradient-to-r from-primary-container via-primary to-secondary text-on-primary-container font-label-md text-label-md shadow-lg shadow-primary-container/20 hover:brightness-110 active:scale-[0.99] transition-all flex items-center justify-center gap-2" onclick="handleIssueCredentials()" type="button">
+<span>Create &amp; Issue Credentials</span>
+<span class="material-symbols-outlined text-[18px]">arrow_forward</span>
+</button>
+</div>
+<!-- Microcopy Telemetry -->
+<div class="flex items-center justify-center gap-1.5 text-on-surface-variant font-label-sm text-label-sm">
+<span class="material-symbols-outlined text-[14px] text-tertiary">send</span>
+<span>Notifies user immediately via encrypted schoolcore dispatch.</span>
+</div>
+<!-- Quick Bulk Import Navigation -->
+<div class="flex items-center justify-center pt-2">
+<a class="inline-flex items-center gap-1.5 font-label-sm text-label-sm text-secondary hover:underline" href="#bulk-import">
+<span class="material-symbols-outlined text-[16px]">upload_file</span>
+          Need to enroll a whole class? Import CSV / SIS roster instead
+        </a>
+</div>
+</div>
+</div>
+</div>
+<script>
+  function selectRole(role) {
+    const studentBtn = document.getElementById('role-student-btn');
+    const facultyBtn = document.getElementById('role-faculty-btn');
+    const studentGlow = document.getElementById('role-student-glow');
+    const facultyGlow = document.getElementById('role-faculty-glow');
+    const studentCheck = document.getElementById('role-student-check');
+    const facultyCheck = document.getElementById('role-faculty-check');
+    const studentIndicator = document.getElementById('role-student-indicator');
+    const facultyIndicator = document.getElementById('role-faculty-indicator');
+    const idDisplay = document.getElementById('system-id-display');
+
+    if (role === 'student') {
+      studentGlow.classList.remove('hidden');
+      studentCheck.classList.remove('hidden');
+      studentCheck.classList.add('flex');
+      studentIndicator.className = 'w-10 h-10 rounded-lg bg-primary-container/20 flex items-center justify-center text-primary shrink-0 mt-0.5';
+
+      facultyGlow.classList.add('hidden');
+      facultyCheck.classList.add('hidden');
+      facultyCheck.classList.remove('flex');
+      facultyIndicator.className = 'w-10 h-10 rounded-lg bg-surface-container-highest flex items-center justify-center text-on-surface-variant shrink-0 mt-0.5';
+
+      idDisplay.textContent = 'ID: #SC-9842';
+    } else {
+      facultyGlow.classList.remove('hidden');
+      facultyCheck.classList.remove('hidden');
+      facultyCheck.classList.add('flex');
+      facultyIndicator.className = 'w-10 h-10 rounded-lg bg-secondary/20 flex items-center justify-center text-secondary shrink-0 mt-0.5';
+
+      studentGlow.classList.add('hidden');
+      studentCheck.classList.add('hidden');
+      studentCheck.classList.remove('flex');
+      studentIndicator.className = 'w-10 h-10 rounded-lg bg-surface-container-highest flex items-center justify-center text-on-surface-variant shrink-0 mt-0.5';
+
+      idDisplay.textContent = 'ID: #T-109';
+    }
+  }
+
+  function regenerateId() {
+    const idDisplay = document.getElementById('system-id-display');
+    const randomNum = Math.floor(1000 + Math.random() * 9000);
+    const prefix = idDisplay.textContent.includes('T-') ? '#T-' : '#SC-';
+    idDisplay.textContent = 'ID: ' + prefix + randomNum;
+  }
+
+  function handleIssueCredentials() {
+    const btn = event.currentTarget;
+    btn.innerHTML = '<span class="material-symbols-outlined text-[18px] animate-spin">sync</span><span>Provisioning Neural Account...</span>';
+    setTimeout(() => {
+      btn.innerHTML = '<span class="material-symbols-outlined text-[18px]">check_circle</span><span>Credentials Dispatched!</span>';
+    }, 1000);
+  }
+</script></main></body></html>

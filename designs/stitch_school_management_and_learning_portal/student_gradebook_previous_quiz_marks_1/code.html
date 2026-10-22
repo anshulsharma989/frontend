@@ -1,0 +1,493 @@
+<!DOCTYPE html>
+
+<html class="dark" lang="en"><head><meta charset="utf-8"/><meta content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no, viewport-fit=cover" name="viewport"/><meta content="mobile_tab" name="shell-type"/><link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@24,400,0,0" rel="stylesheet"/><link href="https://fonts.googleapis.com" rel="preconnect"/><link crossorigin="" href="https://fonts.gstatic.com" rel="preconnect"/><link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600&amp;family=JetBrains+Mono:wght@500&amp;family=Plus+Jakarta+Sans:wght@600;700&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/><script src="https://cdn.tailwindcss.com"></script><script id="tailwind-config">tailwind.config = { darkMode: "class", theme: { extend: { colors: { "background": "#0f131c", "secondary-container": "#03b5d3", "secondary": "#4cd7f6", "surface-bright": "#353942", "surface-container-high": "#262a33", "surface-dim": "#0f131c", "on-tertiary-fixed-variant": "#005236", "on-secondary-container": "#00424e", "on-surface": "#dfe2ee", "on-tertiary-container": "#00311f", "on-secondary-fixed": "#001f26", "on-primary-container": "#340080", "surface-container-highest": "#31353e", "inverse-surface": "#dfe2ee", "on-secondary-fixed-variant": "#004e5c", "outline": "#958ea0", "on-error": "#690005", "primary-container": "#a078ff", "surface-container-lowest": "#0a0e16", "primary": "#d0bcff", "on-primary-fixed": "#23005c", "on-primary": "#3c0091", "primary-fixed": "#e9ddff", "secondary-fixed-dim": "#4cd7f6", "outline-variant": "#494454", "surface-tint": "#d0bcff", "on-tertiary-fixed": "#002113", "primary-fixed-dim": "#d0bcff", "tertiary-container": "#00a572", "tertiary-fixed-dim": "#4edea3", "surface-variant": "#31353e", "surface": "#0f131c", "inverse-primary": "#6d3bd7", "tertiary": "#4edea3", "secondary-fixed": "#acedff", "surface-container": "#1c2028", "on-background": "#dfe2ee", "on-secondary": "#003640", "error": "#ffb4ab", "inverse-on-surface": "#2c3039", "on-primary-fixed-variant": "#5516be", "on-tertiary": "#003824", "surface-container-low": "#181c24", "on-error-container": "#ffdad6", "on-surface-variant": "#cbc3d7", "error-container": "#93000a", "tertiary-fixed": "#6ffbbe" }, borderRadius: { "DEFAULT": "0.25rem", "lg": "0.5rem", "xl": "0.75rem", "full": "9999px" }, spacing: { "space-md": "1rem", "margin": "2rem", "margin-mobile": "1rem", "space-xl": "2.5rem", "space-sm": "0.5rem", "gutter-mobile": "1rem", "space-lg": "1.5rem", "gutter": "1.5rem", "space-xs": "0.25rem" }, fontFamily: { "headline-display": ["Plus Jakarta Sans"], "body-sm": ["Inter"], "headline-display-mobile": ["Plus Jakarta Sans"], "headline-md": ["Plus Jakarta Sans"], "body-lg": ["Inter"], "label-md": ["Inter"], "headline-lg-mobile": ["Plus Jakarta Sans"], "headline-sm": ["Plus Jakarta Sans"], "code-sm": ["JetBrains Mono"], "body-md": ["Inter"], "label-sm": ["Inter"], "headline-lg": ["Plus Jakarta Sans"] }, fontSize: { "headline-display": ["3.5rem", { "lineHeight": "4.25rem", "letterSpacing": "-0.03em", "fontWeight": "700" }], "body-sm": ["0.875rem", { "lineHeight": "1.25rem", "letterSpacing": "0em", "fontWeight": "400" }], "headline-display-mobile": ["2.25rem", { "lineHeight": "2.75rem", "letterSpacing": "-0.02em", "fontWeight": "700" }], "headline-md": ["1.75rem", { "lineHeight": "2.25rem", "letterSpacing": "-0.02em", "fontWeight": "600" }], "body-lg": ["1.125rem", { "lineHeight": "1.75rem", "letterSpacing": "-0.01em", "fontWeight": "400" }], "label-md": ["0.875rem", { "lineHeight": "1.25rem", "letterSpacing": "0.01em", "fontWeight": "500" }], "headline-lg-mobile": ["1.75rem", { "lineHeight": "2.25rem", "letterSpacing": "-0.015em", "fontWeight": "600" }], "headline-sm": ["1.25rem", { "lineHeight": "1.75rem", "letterSpacing": "-0.01em", "fontWeight": "600" }], "code-sm": ["0.8125rem", { "lineHeight": "1.25rem", "letterSpacing": "0em", "fontWeight": "500" }], "body-md": ["1rem", { "lineHeight": "1.5rem", "letterSpacing": "0em", "fontWeight": "400" }], "label-sm": ["0.75rem", { "lineHeight": "1.0rem", "letterSpacing": "0.04em", "fontWeight": "600" }], "headline-lg": ["2.5rem", { "lineHeight": "3rem", "letterSpacing": "-0.025em", "fontWeight": "600" }] } } } };</script><style>@layer base{html,body{width:100%;margin:0;padding:0;background-color:#0f131c;}body{overscroll-behavior:none;-webkit-tap-highlight-color:transparent;}.pb-safe{padding-bottom:env(safe-area-inset-bottom,0px);}.pt-safe{padding-top:env(safe-area-inset-top,0px);}main>:first-child{margin-top:0!important;}main>:last-child{margin-bottom:0!important;}}::-webkit-scrollbar{display:none;}</style><style>
+    body {
+      min-height: max(884px, 100dvh);
+    }
+  </style>
+  </head><body class="bg-surface font-body-md text-body-md text-on-surface antialiased min-h-screen flex flex-col"><header class="fixed top-0 w-full z-50 pt-safe bg-surface/80 backdrop-blur-xl shadow-[0_1px_8px_rgba(0,0,0,0.25)]"><div class="h-16 px-gutter-mobile flex items-center justify-between gap-space-sm"><div class="flex items-center gap-space-sm min-w-0"><button class="flex items-center gap-space-xs px-space-sm py-1 bg-surface-container-high/80 rounded-full text-on-surface hover:bg-surface-container-highest transition-colors min-h-[44px]" type="button"><span class="material-symbols-outlined text-secondary text-[18px]">verified</span><span class="font-label-sm text-label-sm truncate max-w-[120px]">Grade 12-A Honors</span><span class="material-symbols-outlined text-on-surface-variant text-[16px]">expand_more</span></button></div><div class="flex items-center gap-space-xs shrink-0"><button aria-label="Notifications" class="w-11 h-11 flex items-center justify-center rounded-full text-on-surface-variant hover:text-on-surface hover:bg-surface-container-high transition-colors relative" type="button"><span class="material-symbols-outlined text-[22px]">notifications</span><span class="absolute top-2.5 right-2.5 w-2 h-2 rounded-full bg-secondary shadow-[0_0_8px_rgba(76,215,246,0.8)]"></span></button><div class="w-8 h-8 rounded-full bg-primary flex items-center justify-center shadow-[0_0_12px_rgba(208,188,255,0.35)]"><span class="material-symbols-outlined text-on-primary text-[18px]">person</span></div></div></div></header><main class="flex-1 flex flex-col relative w-full pt-16 pb-24 bg-surface"><div class="flex flex-col w-full gap-space-lg px-gutter-mobile">
+<!-- 1. Academic Telemetry Header -->
+<section class="flex flex-col gap-space-md mt-space-sm">
+<!-- Student Meta & Honours Indicator -->
+<div class="flex items-center justify-between gap-space-sm">
+<div class="flex flex-col min-w-0">
+<div class="flex items-center gap-space-xs">
+<span class="font-headline-sm text-headline-sm text-on-surface truncate">Alex Rivera</span>
+<span class="font-code-sm text-code-sm text-secondary bg-secondary/10 px-2 py-0.5 rounded-full">#SC-8921</span>
+</div>
+<p class="font-body-sm text-body-sm text-on-surface-variant flex items-center gap-1.5 mt-0.5">
+<span>Grade 12-A Honors</span>
+<span class="w-1 h-1 rounded-full bg-outline-variant"></span>
+<span class="text-secondary flex items-center gap-1">
+<span class="w-1.5 h-1.5 rounded-full bg-secondary animate-pulse"></span>
+            Sync Active
+          </span>
+</p>
+</div>
+<!-- Honors Badge -->
+<div class="flex items-center gap-1.5 px-3 py-1.5 rounded-full bg-primary-container/20 text-primary shadow-[0_0_16px_rgba(160,120,255,0.25)] shrink-0">
+<span class="material-symbols-outlined text-[16px]" style="font-variation-settings: 'FILL' 1;">stars</span>
+<span class="font-label-sm text-label-sm uppercase tracking-wider">Honors Distinction</span>
+</div>
+</div>
+<!-- Hero Cumulative GPA Banner -->
+<div class="relative overflow-hidden rounded-xl bg-surface-container p-space-md shadow-xl">
+<!-- Atmospheric subtle radial backglow -->
+<div class="absolute -right-8 -top-8 w-44 h-44 rounded-full bg-primary/10 blur-3xl pointer-events-none"></div>
+<div class="absolute -left-8 -bottom-8 w-36 h-36 rounded-full bg-secondary/10 blur-3xl pointer-events-none"></div>
+<div class="relative z-10 flex items-end justify-between">
+<div class="flex flex-col">
+<span class="font-label-sm text-label-sm text-on-surface-variant uppercase tracking-wider">Cumulative Weighted GPA</span>
+<div class="flex items-baseline gap-2 mt-1">
+<span class="font-headline-display-mobile text-headline-display-mobile text-on-surface font-bold tracking-tight">3.94</span>
+<span class="font-body-md text-body-md text-outline">/ 4.0</span>
+</div>
+</div>
+<div class="flex flex-col items-end gap-1">
+<div class="flex items-center gap-1 px-2.5 py-1 rounded-full bg-tertiary-container/30 text-tertiary shadow-[0_0_12px_rgba(78,222,163,0.2)]">
+<span class="material-symbols-outlined text-[16px]">trending_up</span>
+<span class="font-code-sm text-code-sm font-semibold">+0.12 vs Midterm</span>
+</div>
+<span class="font-label-sm text-label-sm text-outline">Updated 2h ago</span>
+</div>
+</div>
+<!-- Linear Micro Progress Bar -->
+<div class="mt-4 w-full h-1.5 rounded-full bg-surface-container-high overflow-hidden">
+<div class="h-full rounded-full bg-gradient-to-r from-primary via-secondary to-tertiary w-[98.5%] shadow-[0_0_8px_rgba(76,215,246,0.5)]"></div>
+</div>
+</div>
+<!-- 4-Stat Grid -->
+<div class="grid grid-cols-2 gap-space-sm">
+<!-- Stat 1 -->
+<div class="flex flex-col p-3.5 rounded-xl bg-surface-container-low transition-all">
+<div class="flex items-center justify-between mb-1">
+<span class="font-label-sm text-label-sm text-on-surface-variant">Course Average</span>
+<span class="material-symbols-outlined text-[18px] text-tertiary">verified</span>
+</div>
+<div class="flex items-baseline gap-1.5">
+<span class="font-headline-sm text-headline-sm text-on-surface">94.2%</span>
+<span class="font-label-sm text-label-sm text-tertiary font-bold px-1.5 py-0.2 rounded bg-tertiary/10">A</span>
+</div>
+<span class="font-code-sm text-code-sm text-outline mt-1">+1.8% past 30d</span>
+</div>
+<!-- Stat 2 -->
+<div class="flex flex-col p-3.5 rounded-xl bg-surface-container-low transition-all">
+<div class="flex items-center justify-between mb-1">
+<span class="font-label-sm text-label-sm text-on-surface-variant">Quizzes Cleared</span>
+<span class="material-symbols-outlined text-[18px] text-secondary">task_alt</span>
+</div>
+<div class="flex items-baseline gap-1.5">
+<span class="font-headline-sm text-headline-sm text-on-surface">18</span>
+<span class="font-body-sm text-body-sm text-outline">of 20</span>
+</div>
+<span class="font-code-sm text-code-sm text-secondary mt-1">2 Finals Pending</span>
+</div>
+<!-- Stat 3 -->
+<div class="flex flex-col p-3.5 rounded-xl bg-surface-container-low transition-all">
+<div class="flex items-center justify-between mb-1">
+<span class="font-label-sm text-label-sm text-on-surface-variant">Percentile</span>
+<span class="material-symbols-outlined text-[18px] text-primary">leaderboard</span>
+</div>
+<div class="flex items-baseline gap-1.5">
+<span class="font-headline-sm text-headline-sm text-on-surface">Top 4%</span>
+</div>
+<span class="font-code-sm text-code-sm text-outline mt-1">Rank #3 of 78</span>
+</div>
+<!-- Stat 4 -->
+<div class="flex flex-col p-3.5 rounded-xl bg-surface-container-low transition-all">
+<div class="flex items-center justify-between mb-1">
+<span class="font-label-sm text-label-sm text-on-surface-variant">AI Mastery</span>
+<span class="material-symbols-outlined text-[18px] text-primary-container">psychology</span>
+</div>
+<div class="flex items-baseline gap-1.5">
+<span class="font-headline-sm text-headline-sm text-on-surface">96%</span>
+<span class="font-label-sm text-label-sm text-primary font-medium">Strong</span>
+</div>
+<span class="font-code-sm text-code-sm text-tertiary mt-1">Ready for Finals</span>
+</div>
+</div>
+</section>
+<!-- 2. Course Track Filter & Term Switcher -->
+<section class="flex flex-col gap-space-sm">
+<!-- Term Switcher pill & Status -->
+<div class="flex items-center justify-between px-3.5 py-2 rounded-xl bg-surface-container-low">
+<div class="flex items-center gap-2">
+<span class="material-symbols-outlined text-[20px] text-primary">calendar_clock</span>
+<div class="flex flex-col">
+<span class="font-label-md text-label-md text-on-surface font-semibold">Fall Term 2024</span>
+<span class="font-code-sm text-code-sm text-outline">Week 12 of 14</span>
+</div>
+</div>
+<div class="flex items-center gap-2">
+<div class="flex flex-col items-end">
+<span class="font-label-sm text-label-sm text-secondary font-semibold">88% Term Progress</span>
+<div class="w-20 h-1.5 rounded-full bg-surface-container-high mt-1 overflow-hidden">
+<div class="h-full rounded-full bg-secondary w-[88%]"></div>
+</div>
+</div>
+</div>
+</div>
+<!-- Subject Filter Pills (Scrollable Carousel) -->
+<div class="flex items-center gap-2 overflow-x-auto pb-1 pt-0.5 no-scrollbar -mx-gutter-mobile px-gutter-mobile">
+<button class="flex items-center gap-1.5 px-3.5 py-2 rounded-full bg-primary text-on-primary shadow-[0_0_14px_rgba(208,188,255,0.4)] whitespace-nowrap min-h-[44px]" type="button">
+<span class="material-symbols-outlined text-[18px]">waves</span>
+<span class="font-label-md text-label-md font-semibold">PHYS-402 Wave Mechanics</span>
+</button>
+<button class="flex items-center gap-1.5 px-3.5 py-2 rounded-full bg-surface-container hover:bg-surface-container-high text-on-surface-variant hover:text-on-surface whitespace-nowrap min-h-[44px] transition-colors" type="button">
+<span class="material-symbols-outlined text-[18px] text-outline">functions</span>
+<span class="font-label-md text-label-md">MATH-501 Calculus</span>
+</button>
+<button class="flex items-center gap-1.5 px-3.5 py-2 rounded-full bg-surface-container hover:bg-surface-container-high text-on-surface-variant hover:text-on-surface whitespace-nowrap min-h-[44px] transition-colors" type="button">
+<span class="material-symbols-outlined text-[18px] text-outline">science</span>
+<span class="font-label-md text-label-md">CHEM-401 Organic Synth</span>
+</button>
+<button class="flex items-center gap-1.5 px-3.5 py-2 rounded-full bg-surface-container hover:bg-surface-container-high text-on-surface-variant hover:text-on-surface whitespace-nowrap min-h-[44px] transition-colors" type="button">
+<span class="material-symbols-outlined text-[18px] text-outline">auto_stories</span>
+<span class="font-label-md text-label-md">ENG-302 Lit Analysis</span>
+</button>
+</div>
+</section>
+<!-- 3. Performance Trend Sparkline & Class Benchmarking -->
+<section class="flex flex-col gap-space-sm p-space-md rounded-xl bg-surface-container">
+<div class="flex items-center justify-between">
+<div class="flex items-center gap-2">
+<span class="material-symbols-outlined text-secondary text-[22px]">ssid_chart</span>
+<span class="font-headline-sm text-headline-sm text-on-surface">Quiz Trajectory</span>
+</div>
+<span class="font-code-sm text-code-sm text-tertiary bg-tertiary-container/20 px-2 py-0.5 rounded-full flex items-center gap-1">
+<span class="w-1.5 h-1.5 rounded-full bg-tertiary"></span>
+        +2.0% Trend
+      </span>
+</div>
+<!-- Inline SVG Sparkline Card -->
+<div class="relative w-full h-36 bg-surface-container-lowest/60 rounded-lg p-2.5 flex flex-col justify-between overflow-hidden">
+<!-- Grid lines -->
+<div class="absolute inset-x-0 top-6 border-b border-surface-bright/30"></div>
+<div class="absolute inset-x-0 top-16 border-b border-surface-bright/20"></div>
+<div class="absolute inset-x-0 top-26 border-b border-surface-bright/20"></div>
+<!-- Vector Sparkline with Glow Gradient -->
+<svg class="w-full h-24 overflow-visible" preserveaspectratio="none" viewbox="0 0 320 80">
+<defs>
+<lineargradient id="curveGradient" x1="0" x2="0" y1="0" y2="1">
+<stop offset="0%" stop-color="#4cd7f6" stop-opacity="0.35"></stop>
+<stop offset="100%" stop-color="#4cd7f6" stop-opacity="0.0"></stop>
+</lineargradient>
+<lineargradient id="strokeGradient" x1="0" x2="1" y1="0" y2="0">
+<stop offset="0%" stop-color="#d0bcff"></stop>
+<stop offset="50%" stop-color="#4cd7f6"></stop>
+<stop offset="100%" stop-color="#4edea3"></stop>
+</lineargradient>
+</defs>
+<!-- Area fill under graph (Values: 92, 88, 95, 91, 96, 94 maps to Y: 40, 60, 25, 45, 20, 30) -->
+<polygon fill="url(#curveGradient)" points="10,80 10,40 70,60 130,25 190,45 250,20 310,30 310,80"></polygon>
+<!-- Line stroke -->
+<polyline fill="none" points="10,40 70,60 130,25 190,45 250,20 310,30" stroke="url(#strokeGradient)" stroke-linecap="round" stroke-linejoin="round" stroke-width="3"></polyline>
+<!-- Data points -->
+<circle class="fill-surface" cx="10" cy="40" r="3.5" stroke="#d0bcff" stroke-width="2"></circle>
+<circle class="fill-surface" cx="70" cy="60" r="3.5" stroke="#d0bcff" stroke-width="2"></circle>
+<circle class="fill-surface" cx="130" cy="25" r="3.5" stroke="#4cd7f6" stroke-width="2"></circle>
+<circle class="fill-surface" cx="190" cy="45" r="3.5" stroke="#4cd7f6" stroke-width="2"></circle>
+<circle class="fill-tertiary" cx="250" cy="20" r="4.5" stroke="#ffffff" stroke-width="2"></circle>
+<circle class="fill-surface" cx="310" cy="30" r="4" stroke="#4edea3" stroke-width="2"></circle>
+</svg>
+<!-- Horizontal Axis Labels -->
+<div class="flex justify-between text-outline font-code-sm text-code-sm px-1">
+<span>Q1 (92%)</span>
+<span>Q2 (88%)</span>
+<span>Q3 (95%)</span>
+<span>Q4 (91%)</span>
+<span>Q5 (96%)</span>
+<span class="text-secondary font-bold">Q6 (94%)</span>
+</div>
+</div>
+<!-- Class Benchmark Distribution Pill Bar -->
+<div class="flex flex-col gap-2 mt-1">
+<div class="flex justify-between items-center text-label-sm font-label-sm">
+<span class="text-on-surface-variant">Class Cohort Benchmark</span>
+<span class="text-secondary font-code-sm">Top Quartile (Q4)</span>
+</div>
+<!-- Segmented comparison visualization -->
+<div class="relative w-full h-8 rounded-lg bg-surface-container-high px-3 flex items-center justify-between text-body-sm">
+<!-- Median marker -->
+<div class="flex items-center gap-1 text-outline">
+<span class="w-1.5 h-3 rounded-full bg-outline"></span>
+<span class="font-code-sm text-code-sm">Median: 81.6%</span>
+</div>
+<!-- Student indicator -->
+<div class="flex items-center gap-1.5 px-2 py-0.5 rounded bg-secondary/20 text-secondary shadow-[0_0_10px_rgba(76,215,246,0.3)]">
+<span class="w-2 h-2 rounded-full bg-secondary animate-ping"></span>
+<span class="font-code-sm text-code-sm font-bold">You: 94.2%</span>
+</div>
+<!-- Class High marker -->
+<div class="flex items-center gap-1 text-tertiary">
+<span class="font-code-sm text-code-sm">Max: 98%</span>
+<span class="w-1.5 h-3 rounded-full bg-tertiary"></span>
+</div>
+</div>
+</div>
+</section>
+<!-- 4. Detailed Quiz History & Marks Breakdown List -->
+<section class="flex flex-col gap-space-md">
+<div class="flex items-center justify-between">
+<div class="flex items-center gap-2">
+<span class="material-symbols-outlined text-primary text-[22px]">history_edu</span>
+<h2 class="font-headline-sm text-headline-sm text-on-surface">Previous Quiz Marks</h2>
+</div>
+<button class="font-label-sm text-label-sm text-primary hover:text-primary-fixed flex items-center gap-0.5" type="button">
+<span>Sort by Marks</span>
+<span class="material-symbols-outlined text-[16px]">swap_vert</span>
+</button>
+</div>
+<!-- Quiz 6: Detailed Hero Entry (Midterm) -->
+<div class="flex flex-col gap-3 p-space-md rounded-xl bg-surface-container transition-all hover:bg-surface-container-high relative overflow-hidden group">
+<div class="absolute left-0 top-0 bottom-0 w-1 bg-gradient-to-b from-primary via-secondary to-tertiary"></div>
+<!-- Header row -->
+<div class="flex items-start justify-between gap-2">
+<div class="flex flex-col min-w-0">
+<div class="flex items-center gap-2">
+<span class="font-label-sm text-label-sm text-primary uppercase font-bold tracking-wider">Quiz 6 • Midterm</span>
+<span class="px-2 py-0.5 rounded-full bg-secondary-container/20 text-secondary font-code-sm text-code-sm">Proctored</span>
+</div>
+<h3 class="font-headline-sm text-headline-sm text-on-surface mt-1 truncate">Wave Mechanics &amp; Harmonic Oscillations</h3>
+<p class="font-body-sm text-body-sm text-outline mt-0.5">Oct 22, 2024 • 14:00 EST</p>
+</div>
+<!-- Score Badge -->
+<div class="flex flex-col items-end shrink-0">
+<div class="flex items-baseline gap-1">
+<span class="font-headline-lg-mobile text-headline-lg-mobile font-bold text-on-surface">94</span>
+<span class="font-body-sm text-body-sm text-outline">/100</span>
+</div>
+<span class="font-label-sm text-label-sm text-tertiary bg-tertiary/10 px-2 py-0.5 rounded font-bold">Grade A</span>
+</div>
+</div>
+<!-- Quick Metrics Pills -->
+<div class="flex flex-wrap items-center gap-2 pt-1">
+<span class="flex items-center gap-1 px-2.5 py-1 rounded-full bg-surface-container-high text-on-surface font-code-sm text-code-sm">
+<span class="material-symbols-outlined text-[14px] text-tertiary">workspace_premium</span> Top 5% Cohort
+        </span>
+<span class="flex items-center gap-1 px-2.5 py-1 rounded-full bg-surface-container-high text-on-surface font-code-sm text-code-sm">
+<span class="material-symbols-outlined text-[14px] text-secondary">timer</span> 38m / 45m
+        </span>
+<span class="flex items-center gap-1 px-2.5 py-1 rounded-full bg-surface-container-high text-on-surface font-code-sm text-code-sm">
+<span class="material-symbols-outlined text-[14px] text-primary">fact_check</span> 22/24 Correct
+        </span>
+</div>
+<!-- Sub-topic Breakdown Bars -->
+<div class="flex flex-col gap-2 mt-2 p-3 rounded-lg bg-surface-container-lowest/70">
+<span class="font-label-sm text-label-sm text-on-surface-variant font-semibold">Sub-Topic Mastery Breakdown</span>
+<!-- Topic 1 -->
+<div class="flex flex-col gap-1">
+<div class="flex justify-between text-body-sm font-body-sm">
+<span class="text-on-surface">Boundary Conditions</span>
+<span class="text-tertiary font-code-sm font-bold">100% (8/8)</span>
+</div>
+<div class="w-full h-1.5 rounded-full bg-surface-container-high overflow-hidden">
+<div class="h-full rounded-full bg-tertiary w-full"></div>
+</div>
+</div>
+<!-- Topic 2 -->
+<div class="flex flex-col gap-1">
+<div class="flex justify-between text-body-sm font-body-sm">
+<span class="text-on-surface">Phase Velocity &amp; Dispersion</span>
+<span class="text-secondary font-code-sm font-bold">95% (9/10)</span>
+</div>
+<div class="w-full h-1.5 rounded-full bg-surface-container-high overflow-hidden">
+<div class="h-full rounded-full bg-secondary w-[95%]"></div>
+</div>
+</div>
+<!-- Topic 3 -->
+<div class="flex flex-col gap-1">
+<div class="flex justify-between text-body-sm font-body-sm">
+<span class="text-on-surface">Damping Factors &amp; Q-Factor</span>
+<span class="text-primary font-code-sm font-bold">85% (5/6)</span>
+</div>
+<div class="w-full h-1.5 rounded-full bg-surface-container-high overflow-hidden">
+<div class="h-full rounded-full bg-primary w-[85%]"></div>
+</div>
+</div>
+</div>
+<!-- Interactive Actions -->
+<div class="flex items-center gap-2 pt-2">
+<button class="flex-1 flex items-center justify-center gap-1.5 px-3 py-2.5 rounded-lg bg-surface-container-high hover:bg-surface-bright text-on-surface font-label-md text-label-md min-h-[44px] transition-colors" type="button">
+<span>Question Breakdown</span>
+<span class="material-symbols-outlined text-[16px]">arrow_forward</span>
+</button>
+<button class="flex items-center justify-center gap-1 px-3 py-2.5 rounded-lg bg-primary/10 text-primary hover:bg-primary/20 font-label-md text-label-md min-h-[44px] transition-colors shadow-[0_0_12px_rgba(208,188,255,0.15)]" type="button">
+<span class="material-symbols-outlined text-[18px]">psychology</span>
+<span>Retake Weak Topics</span>
+</button>
+</div>
+</div>
+<!-- Quiz 5 Card -->
+<div class="flex flex-col gap-2.5 p-space-md rounded-xl bg-surface-container hover:bg-surface-container-high transition-all">
+<div class="flex items-start justify-between">
+<div class="flex flex-col">
+<span class="font-label-sm text-label-sm text-outline">Quiz 5 • Oct 14, 2024</span>
+<h3 class="font-headline-sm text-headline-sm text-on-surface mt-0.5">Standing Waves &amp; Resonance Frequencies</h3>
+</div>
+<div class="flex flex-col items-end">
+<div class="flex items-baseline gap-1">
+<span class="font-headline-sm text-headline-sm font-bold text-on-surface">96</span>
+<span class="font-body-sm text-body-sm text-outline">/100</span>
+</div>
+<span class="font-label-sm text-label-sm text-tertiary bg-tertiary/10 px-1.5 py-0.2 rounded font-bold">Grade A+</span>
+</div>
+</div>
+<div class="flex items-center gap-2">
+<span class="px-2 py-0.5 rounded-full bg-tertiary/10 text-tertiary font-code-sm text-code-sm flex items-center gap-1">
+<span class="material-symbols-outlined text-[14px]">emoji_events</span> Class High Score
+        </span>
+<span class="px-2 py-0.5 rounded-full bg-surface-container-high text-on-surface-variant font-code-sm text-code-sm">
+          29m / 40m
+        </span>
+</div>
+<div class="flex justify-end pt-1">
+<button class="font-label-sm text-label-sm text-secondary hover:text-secondary-fixed flex items-center gap-1 min-h-[40px]" type="button">
+<span>View Verified Solutions</span>
+<span class="material-symbols-outlined text-[16px]">open_in_new</span>
+</button>
+</div>
+</div>
+<!-- Quiz 4 Card -->
+<div class="flex flex-col gap-2.5 p-space-md rounded-xl bg-surface-container hover:bg-surface-container-high transition-all">
+<div class="flex items-start justify-between">
+<div class="flex flex-col">
+<span class="font-label-sm text-label-sm text-outline">Quiz 4 • Oct 02, 2024</span>
+<h3 class="font-headline-sm text-headline-sm text-on-surface mt-0.5">Superposition Principle &amp; Interference</h3>
+</div>
+<div class="flex flex-col items-end">
+<div class="flex items-baseline gap-1">
+<span class="font-headline-sm text-headline-sm font-bold text-on-surface">91</span>
+<span class="font-body-sm text-body-sm text-outline">/100</span>
+</div>
+<span class="font-label-sm text-label-sm text-secondary bg-secondary/10 px-1.5 py-0.2 rounded font-bold">Grade A-</span>
+</div>
+</div>
+<div class="flex items-center gap-2">
+<span class="px-2 py-0.5 rounded-full bg-primary/10 text-primary font-code-sm text-code-sm flex items-center gap-1">
+<span class="material-symbols-outlined text-[14px]">smart_toy</span> Reviewed with Socratic AI Tutor
+        </span>
+</div>
+</div>
+<!-- Quiz 3 Card -->
+<div class="flex flex-col gap-2.5 p-space-md rounded-xl bg-surface-container hover:bg-surface-container-high transition-all">
+<div class="flex items-start justify-between">
+<div class="flex flex-col">
+<span class="font-label-sm text-label-sm text-outline">Quiz 3 • Sep 21, 2024</span>
+<h3 class="font-headline-sm text-headline-sm text-on-surface mt-0.5">Doppler Effect &amp; Acoustic Waves</h3>
+</div>
+<div class="flex flex-col items-end">
+<div class="flex items-baseline gap-1">
+<span class="font-headline-sm text-headline-sm font-bold text-on-surface">95</span>
+<span class="font-body-sm text-body-sm text-outline">/100</span>
+</div>
+<span class="font-label-sm text-label-sm text-tertiary bg-tertiary/10 px-1.5 py-0.2 rounded font-bold">Grade A</span>
+</div>
+</div>
+</div>
+<!-- Quiz 2 Card -->
+<div class="flex flex-col gap-2.5 p-space-md rounded-xl bg-surface-container hover:bg-surface-container-high transition-all">
+<div class="flex items-start justify-between">
+<div class="flex flex-col">
+<span class="font-label-sm text-label-sm text-outline">Quiz 2 • Sep 11, 2024</span>
+<h3 class="font-headline-sm text-headline-sm text-on-surface mt-0.5">Simple Harmonic Motion &amp; Restoring Forces</h3>
+</div>
+<div class="flex flex-col items-end">
+<div class="flex items-baseline gap-1">
+<span class="font-headline-sm text-headline-sm font-bold text-on-surface">88</span>
+<span class="font-body-sm text-body-sm text-outline">/100</span>
+</div>
+<span class="font-label-sm text-label-sm text-outline bg-surface-container-high px-1.5 py-0.2 rounded font-bold">Grade B+</span>
+</div>
+</div>
+<div class="flex items-center gap-1.5 p-2 rounded-lg bg-surface-container-high/60 text-on-surface font-code-sm text-code-sm">
+<span class="material-symbols-outlined text-[16px] text-tertiary">check_circle</span>
+<span>Formula derivation retry completed (+4 pts recovered)</span>
+</div>
+</div>
+</section>
+<!-- 5. AI Knowledge Gap & Topic Mastery Radar -->
+<section class="flex flex-col gap-space-md p-space-md rounded-xl bg-surface-container relative overflow-hidden shadow-lg">
+<!-- Gradient Aura -->
+<div class="absolute -right-12 -bottom-12 w-48 h-48 rounded-full bg-secondary/10 blur-3xl pointer-events-none"></div>
+<div class="flex items-center justify-between">
+<div class="flex items-center gap-2">
+<div class="w-8 h-8 rounded-lg bg-primary/20 flex items-center justify-center text-primary shadow-[0_0_12px_rgba(208,188,255,0.3)]">
+<span class="material-symbols-outlined text-[20px]">cognition</span>
+</div>
+<div class="flex flex-col">
+<span class="font-headline-sm text-headline-sm text-on-surface">Socratic Core 4.5</span>
+<span class="font-code-sm text-code-sm text-outline">Adaptive Knowledge Graph</span>
+</div>
+</div>
+<span class="font-label-sm text-label-sm text-secondary bg-secondary/10 px-2 py-1 rounded-full font-semibold">Active Model</span>
+</div>
+<!-- Mastered Concepts List -->
+<div class="flex flex-col gap-2">
+<div class="flex items-center gap-1.5 text-label-sm font-label-sm text-tertiary">
+<span class="material-symbols-outlined text-[16px]">check_circle</span>
+<span class="uppercase tracking-wider font-bold">Mastered Concepts (100% Retention)</span>
+</div>
+<div class="flex flex-wrap gap-1.5">
+<span class="px-3 py-1 rounded-full bg-tertiary-container/20 text-tertiary font-code-sm text-code-sm">Transverse Wave Equations</span>
+<span class="px-3 py-1 rounded-full bg-tertiary-container/20 text-tertiary font-code-sm text-code-sm">Interference Patterns</span>
+<span class="px-3 py-1 rounded-full bg-tertiary-container/20 text-tertiary font-code-sm text-code-sm">Resonant Cavities</span>
+</div>
+</div>
+<!-- Growth Opportunity (Flagged) -->
+<div class="flex flex-col gap-2 p-3 rounded-lg bg-surface-container-lowest">
+<div class="flex items-center justify-between">
+<div class="flex items-center gap-1.5 text-label-sm font-label-sm text-secondary">
+<span class="material-symbols-outlined text-[16px]">priority_high</span>
+<span class="uppercase tracking-wider font-bold">Needs Focus / Growth Point</span>
+</div>
+<span class="font-code-sm text-code-sm text-secondary font-bold">78% Mastery</span>
+</div>
+<p class="font-body-sm text-body-sm text-on-surface">
+<strong class="text-on-surface font-semibold">Open-Pipe Boundary Phase Reflections:</strong> Identified slight hesitation in identifying 180° inversion under varying acoustic impedance.
+      </p>
+<!-- Targeted Drill CTA Button -->
+<button class="w-full flex items-center justify-center gap-2 py-3 px-4 rounded-lg bg-gradient-to-r from-primary to-secondary text-on-primary font-label-md text-label-md font-bold shadow-[0_0_20px_rgba(208,188,255,0.35)] hover:opacity-95 active:scale-[0.99] transition-all min-h-[48px] mt-1" type="button">
+<span class="material-symbols-outlined text-[20px]">bolt</span>
+<span>Generate 5-min Targeted Drill on Boundary Reflections</span>
+</button>
+</div>
+</section>
+<!-- 6. Grade Report Export & Verification Dock -->
+<section class="flex flex-col gap-space-sm p-space-md rounded-xl bg-surface-container-low mb-space-sm">
+<!-- Cryptographic Ledger Status -->
+<div class="flex items-start gap-2.5">
+<span class="material-symbols-outlined text-secondary text-[22px] shrink-0 mt-0.5">verified_user</span>
+<div class="flex flex-col min-w-0">
+<span class="font-label-md text-label-md text-on-surface font-semibold">Cryptographically Verified SIS Ledger</span>
+<p class="font-code-sm text-code-sm text-outline truncate mt-0.5">Hash: 0x9b4f2c0199ea78f4...e289</p>
+</div>
+</div>
+<!-- Official Actions -->
+<div class="flex flex-col sm:flex-row gap-2 mt-2">
+<button class="flex-1 flex items-center justify-center gap-2 px-4 py-2.5 rounded-lg bg-surface-container-high hover:bg-surface-bright text-on-surface font-label-md text-label-md min-h-[44px] transition-colors" type="button">
+<span class="material-symbols-outlined text-[18px]">download</span>
+<span>Download Certified PDF Report</span>
+</button>
+<button class="flex-1 flex items-center justify-center gap-2 px-4 py-2.5 rounded-lg bg-surface-container-high hover:bg-surface-bright text-on-surface font-label-md text-label-md min-h-[44px] transition-colors" type="button">
+<span class="material-symbols-outlined text-[18px]">share</span>
+<span>Share with Guardian</span>
+</button>
+</div>
+</section>
+</div>
+<script>
+  // Micro-interaction for feedback on interactive actions
+  document.addEventListener('DOMContentLoaded', () => {
+    const drillBtn = document.querySelector('button:has(.material-symbols-outlined:contains("bolt"))');
+    // Subtle tactile response handler
+    const buttons = document.querySelectorAll('button');
+    buttons.forEach(btn => {
+      btn.addEventListener('click', (e) => {
+        btn.classList.add('opacity-80');
+        setTimeout(() => btn.classList.remove('opacity-80'), 150);
+      });
+    });
+  });
+</script></main><nav class="fixed bottom-0 w-full z-50 pb-safe bg-surface/85 backdrop-blur-xl shadow-[0_-2px_12px_rgba(0,0,0,0.3)]" data-active-classes="text-primary [&amp;&gt;div]:bg-primary-container/20 [&amp;&gt;div&gt;span]:text-primary [&amp;&gt;div]:shadow-[0_0_16px_rgba(160,120,255,0.4)]"><div class="flex justify-around items-center h-20 px-space-xs"><a class="flex flex-col items-center justify-center gap-1 min-w-[56px] min-h-[44px] text-on-surface-variant hover:text-on-surface transition-all" data-path="home" href="#"><div class="w-10 h-7 rounded-full flex items-center justify-center transition-all"><span class="material-symbols-outlined text-[20px]">home</span></div><span class="font-label-sm text-label-sm">Home</span></a><a class="flex flex-col items-center justify-center gap-1 min-w-[56px] min-h-[44px] text-on-surface-variant hover:text-on-surface transition-all" data-path="classes" href="#"><div class="w-10 h-7 rounded-full flex items-center justify-center transition-all"><span class="material-symbols-outlined text-[20px]">menu_book</span></div><span class="font-label-sm text-label-sm">Classes</span></a><a aria-current="page" class="flex flex-col items-center justify-center gap-1 min-w-[56px] min-h-[44px] transition-all text-primary [&amp;&gt;div]:bg-primary-container/20 [&amp;&gt;div&gt;span]:text-primary [&amp;&gt;div]:shadow-[0_0_16px_rgba(160,120,255,0.4)]" data-path="grades" href="#"><div class="w-10 h-7 rounded-full flex items-center justify-center transition-all"><span class="material-symbols-outlined text-[20px]">analytics</span></div><span class="font-label-sm text-label-sm">Grades</span></a><a class="flex flex-col items-center justify-center gap-1 min-w-[56px] min-h-[44px] text-on-surface-variant hover:text-on-surface transition-all" data-path="quizzes" href="#"><div class="w-10 h-7 rounded-full flex items-center justify-center transition-all"><span class="material-symbols-outlined text-[20px]">quiz</span></div><span class="font-label-sm text-label-sm">Quizzes</span></a><a class="flex flex-col items-center justify-center gap-1 min-w-[56px] min-h-[44px] text-on-surface-variant hover:text-on-surface transition-all" data-path="chat" href="#"><div class="w-10 h-7 rounded-full flex items-center justify-center transition-all"><span class="material-symbols-outlined text-[20px]">smart_toy</span></div><span class="font-label-sm text-label-sm">Chat</span></a></div></nav></body></html>
