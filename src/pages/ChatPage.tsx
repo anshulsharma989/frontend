@@ -1,4 +1,5 @@
 import { FormEvent, ReactNode, useEffect, useRef, useState } from "react";
+import { useLocation } from "react-router-dom";
 import { getGrades, getSubjects, sendFeedback, streamChat } from "../api";
 import { useAuth } from "../auth";
 import type { ChatMessage, Grade, Source, Subject } from "../types";
@@ -102,6 +103,7 @@ function Feedback({
 
 export default function ChatPage() {
   const { user } = useAuth();
+  const location = useLocation();
   const isAdmin = user?.role === "admin";
   const [messages, setMessages] = useState<ChatMessage[]>([]);
   const [conversationId, setConversationId] = useState<number | null>(null);
@@ -117,6 +119,15 @@ export default function ChatPage() {
   useEffect(() => {
     bottomRef.current?.scrollIntoView({ behavior: "smooth" });
   }, [messages]);
+
+  // Entry points like the chat hub's AI quick-action chips pass a starting
+  // question via navigation state instead of a URL param, since it's free text.
+  useEffect(() => {
+    const initial = (location.state as { initialQuestion?: string } | null)?.initialQuestion;
+    if (initial) setInput(initial);
+    // Only applies on the initial navigation into this page, not on every re-render.
+    // eslint-disable-next-line react-hooks/exhaustive-deps
+  }, []);
 
   // Admins pick a grade explicitly; students are scoped to their own grade server-side.
   useEffect(() => {

@@ -1,7 +1,16 @@
 import { FormEvent, useState } from "react";
+import { AuthLayout } from "../components/auth/AuthLayout";
 import { useAuth } from "../auth";
 
-export default function LoginPage({ onSwitchToSignup }: { onSwitchToSignup: () => void }) {
+const inputClass =
+  "w-full rounded-lg bg-surface-container px-3.5 py-2.5 text-sm text-on-surface placeholder:text-outline focus:outline-none focus:ring-2 focus:ring-primary";
+
+interface LoginPageProps {
+  onSwitchToSignup: () => void;
+  onBack: () => void;
+}
+
+export default function LoginPage({ onSwitchToSignup, onBack }: LoginPageProps) {
   const { login } = useAuth();
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
@@ -22,9 +31,8 @@ export default function LoginPage({ onSwitchToSignup }: { onSwitchToSignup: () =
   };
 
   return (
-    <div className="auth-page">
-      <form className="card auth-form" onSubmit={submit}>
-        <h2>Log in</h2>
+    <AuthLayout title="Log in" onBack={onBack}>
+      <form className="flex flex-col gap-space-sm" onSubmit={submit}>
         <input
           type="email"
           placeholder="Email"
@@ -32,6 +40,7 @@ export default function LoginPage({ onSwitchToSignup }: { onSwitchToSignup: () =
           onChange={(e) => setEmail(e.target.value)}
           required
           autoFocus
+          className={inputClass}
         />
         <input
           type="password"
@@ -39,18 +48,23 @@ export default function LoginPage({ onSwitchToSignup }: { onSwitchToSignup: () =
           value={password}
           onChange={(e) => setPassword(e.target.value)}
           required
+          className={inputClass}
         />
-        {error && <div className="error">⚠️ {error}</div>}
-        <button type="submit" disabled={busy}>
+        {error && <div className="rounded-lg bg-error-container/20 px-3 py-2 text-sm text-error">⚠️ {error}</div>}
+        <button
+          type="submit"
+          disabled={busy}
+          className="mt-1 rounded-lg bg-primary-container px-4 py-2.5 text-sm font-semibold text-on-primary-container shadow-md transition-transform active:scale-[0.98] disabled:cursor-not-allowed disabled:opacity-60"
+        >
           {busy ? "Logging in…" : "Log in"}
         </button>
-        <div className="auth-switch">
+        <div className="pt-1 text-center text-sm text-on-surface-variant">
           New here?{" "}
-          <button type="button" className="link" onClick={onSwitchToSignup}>
+          <button type="button" onClick={onSwitchToSignup} className="font-medium text-primary hover:underline">
             Create an account
           </button>
         </div>
       </form>
-    </div>
+    </AuthLayout>
   );
 }
